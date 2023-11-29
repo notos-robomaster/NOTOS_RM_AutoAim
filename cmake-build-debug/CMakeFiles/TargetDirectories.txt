@@ -1,0 +1,3 @@
+/Users/giovanni/CLion/autoaim_beta4/cmake-build-debug/CMakeFiles/autoaim_beta1.dir
+/Users/giovanni/CLion/autoaim_beta4/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/giovanni/CLion/autoaim_beta4/cmake-build-debug/CMakeFiles/rebuild_cache.dir

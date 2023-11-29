@@ -1,0 +1,4 @@
+Log file created at: 2023/11/09 11:08:01
+Running on machine: cgnb-desktop
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+E1109 11:08:01.992975 12022 MVCAMAPI.cpp:350] CameraInit Failed, err:-18,Version:2.1.0.37,FriendlyName:MV-UB31#0,SN:021072920274

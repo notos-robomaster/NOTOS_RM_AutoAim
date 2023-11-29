@@ -1,0 +1,40 @@
+5V5 1(英雄), 2(工程), 3(步兵), 4(步兵), 5(前哨战), 6(基地), 7(哨兵)
+3V3 1(英雄), 3(步兵), 4(步兵),  6(基地), 7(哨兵)
+
+編寫規範
+    0. IDE使用clion 或 VSCode
+    1. 注釋需簡潔的英文或中文, 非拼音
+    2. 名稱需英文, 非拼音, 文件名類名每一單詞首字母大寫, 如: ArmorDetector,
+       函數名首單詞字母小寫, 之後單詞字母大寫, 如: loadSvmModel
+    3. 每一項目需引出封裝性強接口
+    4. 縮進對齊, 每一部分模塊換行空一行
+    5. 各種標點符號盡量使用英文符號
+
+文件樹
+    autoaim_beta
+    ├── Armor
+    │   ├── Armor.h（裝甲板識別頭文件）
+    │   ├── LightBar.cpp（燈條參數文件）
+    │   ├── ArmorBox.cpp（裝甲板參數文件）
+    │   ├── ArmorNumClassifier.cpp（數字識別參數文件）
+    │   ├── findLights.cpp（找燈條文件）
+    │   ├── matchArmors.cpp（匹配裝甲板文件）
+    │   └── ArmorDetector.cpp（裝甲板識別初始文件）
+    ├── cmake-build-debug
+    ├── General
+    │   ├── 123svm.xml（SVM模型文件）
+    │   └── General.h（通用聲明頭文件）
+    ├── Main
+    │   ├── ArmorDetecting.cpp（裝甲板識別進程）
+    │   ├── CMakeLists.txt
+    │   ├── CodeStandard (代碼規範)
+    │   ├── debug.h (調試文件)
+    │   └── main.cpp（main函數）
+
+TODO:
+    使用 OpenVINO 或 CUDA 加速
+    增加設備選擇性
+    設置賽後視頻保存模式
+    更易修改各種參數, 都放到 debug.h 文件
+    解決各種 warning
+    改進數字識別 SVM 模型

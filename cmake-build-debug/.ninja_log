@@ -1,0 +1,15 @@
+# ninja log v5
+13736	26231	1700626967739728804	CMakeFiles/autoaim_beta1.dir/Armor/ArmorNumClassifier.cpp.o	bd0b748a9e3a9af5
+13384	26574	1700626968079729946	CMakeFiles/autoaim_beta1.dir/Armor/ArmorBox.cpp.o	f5a7b8268a57d07b
+19	14695	1700626956203689995	CMakeFiles/autoaim_beta1.dir/Armor/ArmorDetector.cpp.o	7e71b1edde95ecd6
+8	13736	1700626955243686760	CMakeFiles/autoaim_beta1.dir/Armor/findLights.cpp.o	e94f9e04042b5457
+25792	37329	1700626978839766034	CMakeFiles/autoaim_beta1.dir/ImageInit.cpp.o	a7930c277267beb6
+37762	39156	1700626980663772141	autoaim_beta1	1c3efaf6188b6def
+14697	28014	1700626969523734795	CMakeFiles/autoaim_beta1.dir/Armor/matchArmors.cpp.o	7ace186098238440
+13389	25791	1700626967303727340	CMakeFiles/autoaim_beta1.dir/Armor/LightBar.cpp.o	8b3649dc8d61bd66
+31268	42632	1700626178516577015	CMakeFiles/autoaim_beta1.dir/MindVision/cameramain.cpp.o	ed9209c122ef3e55
+26232	37761	1700626979271767481	CMakeFiles/autoaim_beta1.dir/AngleSolver/AngleSolver.cpp.o	5802113886a5e1b0
+0	129	1701176158641128916	build.ninja	133c05f1c2d8d7dd
+7	13378	1700626954887685560	CMakeFiles/autoaim_beta1.dir/main.cpp.o	8a15a6ca6d1c327e
+8	13388	1700626954887685560	CMakeFiles/autoaim_beta1.dir/AutoAim.cpp.o	89fcaa2a9daa9244
+734	769	1697864984695461140	autoaim_beta	aa618ebd393ef3a2

@@ -32,6 +32,10 @@ int AngleSolver::setCameraParam(const char *filePath, int camId)    // todo camI
             fsRead["CAMERA_MATRIX_1"] >> camera_matrix;
             fsRead["DISTORTION_COEFF_1"] >> distortion_coeff;
             break;
+        case 2:
+            fsRead["CAMERA_MATRIX_2"] >> camera_matrix;
+            fsRead["DISTORTION_COEFF_2"] >> distortion_coeff;
+            break;
         default:
             cerr << "wrong CamId given!" << endl;
             break;
@@ -188,7 +192,7 @@ void AngleSolver::showDebugInfo()
             FONT_HERSHEY_SIMPLEX, 1, Scalar(255, 0, 255), 1, 8, false);
     putText(angleImage, "X: " + to_string((int)(tVec.at<double>(0))), Point(50, 200),
             FONT_HERSHEY_SIMPLEX, 1, Scalar(255, 0, 255), 1, 8, false);
-    putText(angleImage, "Y: " + to_string((int)(tVec.at<double>(1))), Point(250, 200),
+    putText(angleImage, "Y: " + to_string((int)(tVec.at<double>(1))), Point(225, 200),
             FONT_HERSHEY_SIMPLEX, 1, Scalar(255, 0, 255), 1, 8, false);
     putText(angleImage, "Z: " + to_string((int)(tVec.at<double>(2))), Point(400, 200),
             FONT_HERSHEY_SIMPLEX, 1, Scalar(255, 0, 255), 1, 8, false);

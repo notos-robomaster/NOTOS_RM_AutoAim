@@ -23,8 +23,8 @@
 //                            Image debug options
 //- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -//
 //#define SHOW_SRCIMG // show src
-#define SHOW_SRCBINARY  // show binary
-#define SHOW_LIGHTS // show light
+//#define SHOW_SRCBINARY  // show binary
+//#define SHOW_LIGHTS // show light
 #define SHOW_ARMORS // show armors
 #define SHOW_ARMORNUM   // show armor number
 //#define TEXT_LIGHTS // light info

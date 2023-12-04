@@ -23,7 +23,7 @@ void imageInit()
             return;
         }
         MVVideoCapture::Play();
-        MVVideoCapture::SetExposureTime(false, 29000);
+        MVVideoCapture::SetExposureTime(false, 20000);
         MVVideoCapture::SetLargeResolution(false);
         std::cout << "MindVision Finished!" << std::endl;
         std::this_thread::sleep_for(std::chrono::seconds(1));

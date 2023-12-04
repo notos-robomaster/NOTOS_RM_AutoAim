@@ -2,7 +2,7 @@
 
 sec=5
 cnt=0
-path=/home/nvidia/RM2022/AIM_HUST-buff/build
+path=/home/cgnb/TheNewBegging/NOTOS_RM_AutoAim
 name=main
 cd $path
 make clean && make -j

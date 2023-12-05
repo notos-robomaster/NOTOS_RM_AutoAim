@@ -27,6 +27,7 @@ add_executable(autoaim_beta1 main.cpp
         MindVision/head/CameraStatus.h
         AngleSolver/AngleSolver.cpp
         AngleSolver/AngleSolver.h
+        Calibration/Calibration.cpp
 )
 
 target_link_libraries(autoaim_beta1 /home/cgnb/MindVision/lib/arm64/libMVSDK.so)

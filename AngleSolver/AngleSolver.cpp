@@ -88,9 +88,11 @@ void AngleSolver::solveAngles()
         case SMALL_ARMOR:
             solvePnP(SMALL_ARMOR_POINTS_3D, targetContour, CAMERA_MATRIX, DISTORTION_COEFF,
                      _rvec, tVec, false, SOLVEPNP_ITERATIVE);
+            break;
         case BIG_ARMOR:
             solvePnP(BIG_ARMOR_POINTS_3D, targetContour, CAMERA_MATRIX, DISTORTION_COEFF,
                      _rvec, tVec, false, SOLVEPNP_ITERATIVE);
+            break;
         default:
             break;
     }
@@ -142,7 +144,7 @@ void AngleSolver::PinHole_solver()
     double ryNew = (pnt.y - cy) / fy;
 
     y_yaw = atan(rxNew) * 180 / CV_PI;
-    x_pitch= atan(ryNew) * 180 / CV_PI;
+    x_pitch= -atan(ryNew) * 180 / CV_PI;
 }
 
 void AngleSolver::compensateAngle()

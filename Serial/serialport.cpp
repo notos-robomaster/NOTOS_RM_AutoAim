@@ -243,7 +243,7 @@ void SerialPort::TransformData_Global(int Data_1, int Data_2, int Data_3, int Da
     *len = 10;
 }
 
-void SerialPort::TransformData_Part(int Data_1, int Data_2, bool part)//打包 局部
+void SerialPort::TransformData_Part(bool part, int Data_1, int Data_2)//打包 局部
 {
     Tdata[0] = 0x13;
     Tdata[1] = part;

@@ -47,7 +47,7 @@ void autoaimRun()
         }
 
         // Serial
-        port.TransformData_Part(yaw, pitch, detector.isFoundArmor());
+        port.TransformData_Part(detector.isFoundArmor(), yaw, pitch);
         port.send();
 
         detector.setTargetNum(targetNum);

@@ -1,3 +1,3 @@
-/home/cgnb/TheNewBegging/NOTOS_RM_AutoAim/cmake-build-debug/CMakeFiles/autoaim_beta1.dir
-/home/cgnb/TheNewBegging/NOTOS_RM_AutoAim/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/cgnb/TheNewBegging/NOTOS_RM_AutoAim/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/giovanni/CLion/NOTOS_RM_AutoAim/cmake-build-debug/CMakeFiles/autoaim_beta1.dir
+/Users/giovanni/CLion/NOTOS_RM_AutoAim/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/giovanni/CLion/NOTOS_RM_AutoAim/cmake-build-debug/CMakeFiles/rebuild_cache.dir

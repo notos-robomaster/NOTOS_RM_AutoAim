@@ -1,9 +1,9 @@
 #include "serialport.h"
-//int Data_1=2,Data_2=2,Data_3=3,Data_4=4,Data_5=5,Data_6=6,Data_7=7;
-//int part = 1;
+// int Data_1=2,Data_2=2,Data_3=3,Data_4=4,Data_5=5,Data_6=6,Data_7=7;
+// int part = 1;
 
 int length = 10;
-//int *ptr = &part;
+// int *ptr = &part;
 int *len = &length;
 
 /**
@@ -228,7 +228,7 @@ void SerialPort::send()
     write(fd, Tdata, length);
 }
 
-void SerialPort::TransformData_Global(int Data_1, int Data_2, int Data_3, int Data_4, int Data_5, int Data_6)//打包 全局
+void SerialPort::TransformData_Global(int Data_1, int Data_2, int Data_3, int Data_4, int Data_5, int Data_6) // 打包 全局
 {
     Tdata[0] = 0x13;
     Tdata[1] = 0x01;
@@ -238,20 +238,21 @@ void SerialPort::TransformData_Global(int Data_1, int Data_2, int Data_3, int Da
     Tdata[5] = Data_4;
     Tdata[6] = Data_5;
     Tdata[7] = Data_6;
-    Append_CRC8_Check_Sum(Tdata,9);
+    Append_CRC8_Check_Sum(Tdata, 9);
     Tdata[9] = 0xFE;
     *len = 10;
 }
 
-void SerialPort::TransformData_Part(bool part, int Data_1, int Data_2)//打包 局部
+void SerialPort::TransformData_Part(bool part, int Data_1, int Data_2) // 打包 局部
 {
     Tdata[0] = 0x13;
-    Tdata[1] = part;
-    Tdata[2] = Data_1;
-    Tdata[3] = Data_2;
-    Append_CRC8_Check_Sum(Tdata,5);
-    Tdata[5] = 0xFE;
-    *len = 6;
+    Tdata[1] = part_1; // yaw轴判断正负
+    Tdata[2] = Data_1; // yaw轴角度
+    Tdata[3] = part_2; // pitch轴判断正负
+    Tdata[4] = Data_2; // pitch轴角度
+    Append_CRC8_Check_Sum(Tdata, 6);
+    Tdata[6] = 0xFE;
+    *len = 7;
 }
 
 // 关闭通讯协议接口

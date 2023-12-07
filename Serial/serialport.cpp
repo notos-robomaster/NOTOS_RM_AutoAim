@@ -245,14 +245,28 @@ void SerialPort::TransformData_Global(int Data_1, int Data_2, int Data_3, int Da
 
 void SerialPort::TransformData_Part(bool part, int Data_1, int Data_2) // 打包 局部
 {
+    bool part_1 , part_2;
+    part_1 = 1;
+    part_2 = 1;
+    if (Data_1 < 0)
+    {
+        part_1 = 0;
+        Data_1 = abs(Data_1);
+    }
+    if (Data_2 < 0)
+    {
+        part_2 = 0;
+        Data_2 = abs(Data_2);
+    }
     Tdata[0] = 0x13;
-    Tdata[1] = part_1; // yaw轴判断正负
-    Tdata[2] = Data_1; // yaw轴角度
-    Tdata[3] = part_2; // pitch轴判断正负
-    Tdata[4] = Data_2; // pitch轴角度
-    Append_CRC8_Check_Sum(Tdata, 6);
-    Tdata[6] = 0xFE;
-    *len = 7;
+    Tdata[1] = part;
+    Tdata[2] = part_1; // yaw轴判断正负
+    Tdata[3] = Data_1; // yaw轴角度
+    Tdata[4] = part_2; // pitch轴判断正负
+    Tdata[5] = Data_2; // pitch轴角度
+    Append_CRC8_Check_Sum(Tdata, 7);
+    Tdata[7] = 0xFE;
+    *len = 8;
 }
 
 // 关闭通讯协议接口

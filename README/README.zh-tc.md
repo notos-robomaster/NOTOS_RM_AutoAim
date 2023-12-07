@@ -11,9 +11,9 @@
 [![Изменить язык-Русский-blue](https://img.shields.io/badge/Изменить%20язык-Русский-blue)](https://github.com/lizuju/NOTOS_RM_AutoAim/blob/main/README/README.ru.md)
 ---
 
-# 倉庫說明
+# 存儲庫描述
 
-## 倉庫目錄
+## 存儲庫目錄
     .
     ├── AngleSolver                 // 角度解算器庫，包含角度解算器類
     │   ├── AngleSolver.cpp         // 角度解算文件

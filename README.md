@@ -1,5 +1,5 @@
 # NOTOS_RM_AutoAim
-#### This project is the complete code for the 2024 season vision function of the Nanfeng Team at Nanfang College Guangzhou.
+#### This project is the complete code for the visual function of the Guangzhou Nanfeng College Nanfeng Team in the 2024 season.
 
 ---
 [![切换简体中文](https://img.shields.io/badge/切换语言-简体中文-blue)](https://github.com/lizuju/NOTOS_RM_AutoAim/blob/main/README/README.zh-cn.md)
@@ -14,45 +14,52 @@
 # Repository Description
 
 ## Repository Directory
-    .
-    ├── AngleSolver                 // Angle solver library, including the AngleSolver class
-    │   ├── AngleSolver.cpp         // 
-    │   ├── AngleSolver.h           // 
-    ├── Armor                       // Armor recognition library, including the Armor class
-    │   ├── Armor.h                 // Armor recognition header file
-    │   ├── LightBar.cpp            // Light bar recognition header file
-    │   ├── ArmorBox.cpp）          // Armor parameters file
-    │   ├── ArmorNumClassifier.cpp  // Number recognition header file
-    │   ├── findLights.cpp          // Light bar recognition header file
-    │   ├── matchArmors.cpp         // Armor matching header file
-    │   └── ArmorDetector.cpp       // Initial file for armor recognition
-    ├── Calibration                 // Auto-aim library, including the AutoAim class
-    │   ├── Image                   // Image folder
-    │   ├── Calibaration.cpp        // Camera calibration
-    ├── cmake-build-debug           // Compiled generated folder
-    ├── General                     // 
-    │   ├── 123svm.xml              // 
-    │   ├── camera_params.xml     	// 
-    │   ├── General.h               // 
-    ├── MindVision                  // Camera files
-    │   ├── head                    // Camera header files
-    │   │   ├── CameraApi.h         // 
-    │   │   ├── CameraCapture.h     // 
-    │   │   ├── CameraDefine.h      // 
-    │   │   └── CameraStatus.h      // 
-    │   └── cameramain.cpp          // Camera main function
-    ├── Serial                      // Serial communication library, including the Serial class
-    │   ├── CRC_Check.cpp           // CRC check
-    │   ├── CRC_Check.h             // CRC check header file
-    │   ├── serialport.cpp          // Serial communication class
-    │   └── serailport.h            // Serial communication class header file
-    ├── AutoAim.cpp                 // Auto-aim class
-    ├── CMakeLists.txt              // CMake project file
-    ├── CodeStandard                //
-    ├── Debug.h                     // Debug header file
-    ├── Imagelnit.cpp               // 
-    ├── Main.cpp                    // Main function
-    ├── LICENSE                     // License 
-    ├── main.cpp                    // Main function
-    ├── README.md                   // Project description file
-    └── WatchDog.sh                 // Debug script
+     .
+     ├── AngleSolver                // Angle solver library, including angle solver class
+     │ ├── AngleSolver.cpp          // Angle solution file
+     │ ├── AngleSolver.h            // Angle solution header file
+     ├── Armor                      // Armor plate recognition library, including armor plate recognition class
+     │ ├── Armor.h                  // Armor plate identification header file
+     │ ├── LightBar.cpp             // Light bar parameter file
+     │ ├── ArmorBox.cpp             // Armor plate parameter file
+     │ ├── ArmorNumClassifier.cpp   // Digital identification file
+     │ ├── findLights.cpp           // Light bar identification file
+     │ ├── matchArmors.cpp          // Armor plate matching file
+     │ └── ArmorDetector.cpp        // Armor plate recognition initial file
+     ├── Calibration                // Camera calibration file
+     │ ├── Image                    // Image folder
+     │ ├── Calibaration.cpp         // Camera calibration
+     │ ├── file_images.txt          // Image path
+     ├── cmake-build-debug          // Compile and generate folder
+     ├── General                    // Configuration file
+     │ ├── 123svm.xml               // Digital classifier
+     │ ├── camera_params.xml        // Camera configuration file
+     │ ├── General.h                // General header file
+     ├── MindVision                 // Camera File
+     │ ├── head                     // camera header file
+     │ │ ├── CameraApi.h            // Camera API file
+     │ │ ├── CameraCapture.h        // Camera interface file
+     │ │ ├── CameraDefine.h         // Camera parameter file
+     │ │ └── CameraStatus.h         // Camera definition file
+     │ └── cameramain.cpp           // Camera main function
+     ├── Serial                     // Serial communication library, including serial communication class
+     │ ├── CRC_Check.cpp            // CRC check
+     │ ├── CRC_Check.h              // CRC check header file
+     │ ├── serialport.cpp           // Serial communication class
+     │ └── serailport.h             // Serial communication category header file
+     ├── AutoAim.cpp                // Automatic aiming class
+     ├── CMakeLists.txt             // CMake project file
+     ├── Debug.h                    // Debug header file
+     ├── Imagelnit.cpp              // Image initialization file
+     ├── LICENSE                    // License
+     ├── main.cpp                   // main function
+     ├── README.md                  // Project description file
+     └── WatchDog.sh                // Self-starting script
+
+# Description of arms
+
+## Super Contest
+### 1(Hero), 2(Engineer), 3(Infantry), 4(Infantry), 5(Outpost), 6(Base), 7(Sentinel)
+
+## League match
+### 1(Hero), 3(Infantry), 4(Infantry), 6(Base), 7(Sentinel)

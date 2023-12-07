@@ -264,9 +264,9 @@ void SerialPort::TransformData_Part(bool part, int Data_1, int Data_2) // 打包
     Tdata[3] = Data_1; // yaw轴角度
     Tdata[4] = part_2; // pitch轴判断正负
     Tdata[5] = Data_2; // pitch轴角度
-    Append_CRC8_Check_Sum(Tdata, 7);
-    Tdata[7] = 0xFE;
-    *len = 8;
+//    Append_CRC8_Check_Sum(Tdata, 7);
+    Tdata[6] = 0xFE;
+    *len = 7;
 }
 
 // 关闭通讯协议接口

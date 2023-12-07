@@ -9,6 +9,7 @@
 [![Changer la langue-Français-blue](https://img.shields.io/badge/Changer%20la%20langue-Fran%C3%A7ais-blue)](https://github.com/lizuju/NOTOS_RM_AutoAim/blob/main/README/README.fr.md)
 [![Cambiar Idioma-Español-blue](https://img.shields.io/badge/Cambiar%20Idioma-Espa%C3%B1ol-blue)](https://github.com/lizuju/NOTOS_RM_AutoAim/blob/main/README/README.es.md)
 [![Изменить язык-Русский-blue](https://img.shields.io/badge/Изменить%20язык-Русский-blue)](https://github.com/lizuju/NOTOS_RM_AutoAim/blob/main/README/README.ru.md)
+[![Sprache wechseln-Deutsch](https://img.shields.io/badge/Sprache%20wechseln-Deutsch-blue)](https://github.com/lizuju/NOTOS_RM_AutoAim/blob/main/README/README.de.md)
 ---
 
 # 仓库说明
@@ -42,6 +43,14 @@
     │   │   ├── CameraDefine.h      // 相机参数文件
     │   │   └── CameraStatus.h      // 相机定义文件
     │   └── cameramain.cpp          // 相机主函数
+    ├── README                      // 说明档案
+    │   ├── README.de.md            // 德语说明档案
+    │   ├── README.es.md            // 西班牙语说明档案
+    │   ├── README.fr.md            // 法语说明档案
+    │   ├── README.jp.md            // 日语说明档案
+    │   ├── README.ru.md            // 俄语说明档案
+    │   ├── README.zh-cn.md         // 简中说明档案
+    │   └── README.zh-tc.md         // 繁中说明档案
     ├── Serial                      // 串列通讯库，包含串列通讯类
     │   ├── CRC_Check.cpp           // CRC校验
     │   ├── CRC_Check.h             // CRC校验头文件
@@ -53,7 +62,7 @@
     ├── Imagelnit.cpp               // 图像初始化文件
     ├── LICENSE                     // 许可证 
     ├── main.cpp                    // 主函数
-    ├── README.md                   // 项目说明文件
+    ├── README.md                   // 英语说明档案
     └── WatchDog.sh                 // 自启动脚本
 
 # 兵种说明

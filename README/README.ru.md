@@ -9,52 +9,60 @@
 [![Changer la langue-Français-blue](https://img.shields.io/badge/Changer%20la%20langue-Fran%C3%A7ais-blue)](https://github.com/lizuju/NOTOS_RM_AutoAim/blob/main/README/README.fr.md)
 [![Cambiar Idioma-Español-blue](https://img.shields.io/badge/Cambiar%20Idioma-Espa%C3%B1ol-blue)](https://github.com/lizuju/NOTOS_RM_AutoAim/blob/main/README/README.es.md)
 [![Изменить язык-Русский-blue](https://img.shields.io/badge/Изменить%20язык-Русский-blue)](https://github.com/lizuju/NOTOS_RM_AutoAim/blob/main/README/README.ru.md)
+[![Sprache wechseln-Deutsch](https://img.shields.io/badge/Sprache%20wechseln-Deutsch-blue)](https://github.com/lizuju/NOTOS_RM_AutoAim/blob/main/README/README.de.md)
 ---
 
 # Описание склада
 
 ## Каталог склада
-     .
-     ├── AngleSolver                // Библиотека решателя углов, включая класс решателя углов
-     │ ├── AngleSolver.cpp          // Файл решения угла
-     │ ├── AngleSolver.h            // Заголовочный файл решения угла
-     ├── Armor                      // Библиотека распознавания бронеплит, включая класс распознавания бронеплит
-     │ ├── Armor.h                  // Заголовочный файл идентификации бронепластины
-     │ ├── LightBar.cpp             // Файл параметров световой панели
-     │ ├── ArmorBox.cpp             // Файл параметров бронепластины
-     │ ├── ArmorNumClassifier.cpp   // Файл цифровой идентификации
-     │ ├── findLights.cpp           // Файл идентификации световой панели
-     │ ├── matchArmors.cpp          // Файл соответствия броневых пластин
-     │ └── ArmorDetector.cpp        // Исходный файл распознавания бронеплит
-     ├── Calibration                // Файл калибровки камеры
-     │ ├── Image                    // Папка с изображениями
-     │ ├── Calibaration.cpp         // Калибровка камеры
-     │ ├── file_images.txt          // Путь к изображению
-     ├── cmake-build-debug          // Компилируем и создаем папку
-     ├── General                    // Файл конфигурации
-     │ ├── 123svm.xml               // Цифровой классификатор
-     │ ├── camera_params.xml        // Файл конфигурации камеры
-     │ ├── General.h                // Файл общего заголовка
-     ├── MindVision                 // Файл камеры
-     │ ├── head                     // файл заголовка камеры
-     │ │ ├── CameraApi.h            // Файл API камеры
-     │ │ ├── CameraCapture.h        // Файл интерфейса камеры
-     │ │ ├── CameraDefine.h         // Файл параметров камеры
-     │ │ └── CameraStatus.h         // Файл определения камеры
-     │ └── cameramain.cpp           // Основная функция камеры
-     ├── Serial                     // Библиотека последовательной связи, включая класс последовательной связи
-     │ ├── CRC_Check.cpp            // проверка CRC
-     │ ├── CRC_Check.h              // файл заголовка проверки CRC
-     │ ├── Serialport.cpp           // Класс последовательной связи
-     │ └── serailport.h             // Файл заголовка категории последовательной связи
-     ├── AutoAim.cpp                // Класс автоматического прицеливания
-     ├── CMakeLists.txt             // файл проекта CMake
-     ├── Debug.h                    // Файл заголовка отладки
-     ├── Imagelnit.cpp              // Файл инициализации изображения
-     ├── LICENSE                    // Лицензия
-     ├── main.cpp                   // основная функция
-     ├── README.md                  // Файл описания проекта
-     └── WatchDog.sh                // Самозапускающийся скрипт
+    ├── AngleSolver                 // Библиотека для решения углов, включая класс решения углов
+    │   ├── AngleSolver.cpp         // Файл решения углов
+    │   ├── AngleSolver.h           // Заголовочный файл решения углов
+    ├── Armor                       // Библиотека распознавания брони, включая класс распознавания брони
+    │   ├── Armor.h                 // Заголовочный файл распознавания брони
+    │   ├── LightBar.cpp            // Файл параметров световых полос
+    │   ├── ArmorBox.cpp            // Файл параметров брони
+    │   ├── ArmorNumClassifier.cpp  // Файл распознавания цифр
+    │   ├── findLights.cpp          // Файл распознавания световых полос
+    │   ├── matchArmors.cpp         // Файл сопоставления брони
+    │   └── ArmorDetector.cpp       // Исходный файл распознавания брони
+    ├── Calibration                 // Файл калибровки камеры
+    │   ├── Image                   // Папка с изображениями
+    │   ├── Calibaration.cpp        // Калибровка камеры
+    │   ├── file_images.txt         // Пути изображений
+    ├── cmake-build-debug           // Папка с компилированными данными
+    ├── General                     // Файлы конфигурации
+    │   ├── 123svm.xml              // Классификатор цифр
+    │   ├── camera_params.xml     	// Файл конфигурации камеры
+    │   ├── General.h               // Общий заголовочный файл
+    ├── MindVision                  // Файлы камеры
+    │   ├── head                    // Заголовочные файлы камеры
+    │   │   ├── CameraApi.h         // Файл API камеры
+    │   │   ├── CameraCapture.h     // Файл интерфейса камеры
+    │   │   ├── CameraDefine.h      // Файл параметров камеры
+    │   │   └── CameraStatus.h      // Файл определения камеры
+    │   └── cameramain.cpp          // Основной файл камеры
+    ├── README                      // Файл описания
+    │   ├── README.de.md            // Файл описания на немецком языке
+    │   ├── README.es.md            // Файл описания на испанском языке
+    │   ├── README.fr.md            // Файл описания на французском языке
+    │   ├── README.jp.md            // Файл описания на японском языке
+    │   ├── README.ru.md            // Файл описания на русском языке
+    │   ├── README.zh-cn.md         // Файл описания на китайском (упрощенном) языке
+    │   └── README.zh-tc.md         // Файл описания на китайском (традиционном) языке
+    ├── Serial                      // Библиотека последовательной связи, включая класс последовательной связи
+    │   ├── CRC_Check.cpp           // Проверка CRC
+    │   ├── CRC_Check.h             // Заголовочный файл проверки CRC
+    │   ├── serialport.cpp          // Класс последовательной связи
+    │   └── serailport.h            // Заголовочный файл класса последовательной связи
+    ├── AutoAim.cpp                 // Класс автоматического прицеливания
+    ├── CMakeLists.txt              // Файл проекта CMake
+    ├── Debug.h                     // Заголовочный файл отладки
+    ├── Imagelnit.cpp               // Файл инициализации изображений
+    ├── LICENSE                     // Лицензия
+    ├── main.cpp                    // Основная функция
+    ├── README.md                   // Файл описания на английском языке
+    └── WatchDog.sh                 // Сценарий автозапуска
 
 # Описание оружия
 

@@ -159,7 +159,7 @@ CMAKE_PROJECT_DESCRIPTION:STATIC=
 CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=autoaim_beta1
+CMAKE_PROJECT_NAME:STATIC=NOTOS_RM_AutoAim
 
 //Path to a program.
 CMAKE_RANLIB:FILEPATH=/usr/bin/ranlib
@@ -222,6 +222,15 @@ CMAKE_STRIP:FILEPATH=/usr/bin/strip
 // during the make.  This is useful for debugging only. With Visual
 // Studio IDE projects all commands are done without /nologo.
 CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
+
+//Value Computed by CMake
+NOTOS_RM_AutoAim_BINARY_DIR:STATIC=/home/cgnb/TheNewBegging/NOTOS_RM_AutoAim/cmake-build-debug
+
+//Value Computed by CMake
+NOTOS_RM_AutoAim_IS_TOP_LEVEL:STATIC=ON
+
+//Value Computed by CMake
+NOTOS_RM_AutoAim_SOURCE_DIR:STATIC=/home/cgnb/TheNewBegging/NOTOS_RM_AutoAim
 
 //The directory containing a CMake configuration file for OpenCV.
 OpenCV_DIR:PATH=/usr/lib/aarch64-linux-gnu/cmake/opencv4

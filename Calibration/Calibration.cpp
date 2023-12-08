@@ -31,30 +31,31 @@ int main()
     ifstream inputFine(infilename);
     //保存标定的结果  ofstream 是从内存写到硬盘
     ofstream fout(outfilename);
-    ifstream inputFile("file_images.txt");
+    ifstream inputFile("/home/cgnb/TheNewBegging/NOTOS_RM_AutoAim/Calibration/file_images.txt");
 
-    if (inputFile.is_open()) {
-        std::string line;
-
-        // 逐行读取文件内容
-        while (std::getline(inputFile, line)) {
-            cout << line << std::endl;
-        }
-
-        // 关闭文件
-        inputFile.close();
-    }
-    else {
+//    if (inputFile.is_open()) {
+//        std::string line;
+//
+//        // 逐行读取文件内容
+//        while (std::getline(inputFile, line)) {
+//            cout << line << std::endl;
+//            cout << "image" << std::endl;
+//        }
+//
+//        // 关闭文件
+//        inputFile.close();
+//    }
+//    else {
 //        cerr << "无法打开文件！\n";
-    }
-    if (inputFine.is_open())
-    {
-        cout << "file is reading" << endl;
-    }
-    else
-    {
-        cout << "error1" << endl;
-    }
+//    }
+//    if (inputFine.is_open())
+//    {
+//        cout << "file is reading" << endl;
+//    }
+//    else
+//    {
+//        cout << "error1" << endl;
+//    }
 
     // 1.读取毎一幅图像，从中提取出角点，然后对角点进行亚像素精确化、获取每个角点在像素坐标系中的坐标
     // 像素坐标系的原点位于图像的左上角
@@ -73,7 +74,7 @@ int main()
     char filename[100];
     if (inputFile.is_open())
     {
-        cout << "1" << endl;
+        cout << "test1" << endl;
         //读取完毕？
         while (!inputFile.eof())
         {

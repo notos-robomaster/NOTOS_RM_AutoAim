@@ -49,9 +49,13 @@ void ArmorNumClassifier::getArmorImg(ArmorBox &armor)
     warpPerspective(warpPerspective_src, warpPerspective_dst, warpPerspective_mat, armorImgSize,
                     INTER_NEAREST, BORDER_CONSTANT, Scalar(0));
     warpPerspective_dst.copyTo(armor.armorImg);
+#ifdef ALL_DEBUG_MOOD
+#ifdef DETECT_DEBUG_MOOD
 #ifdef SHOW_ARMORNUM
         imshow("Num Monitor", warpPerspective_dst);
 #endif // SHOW_ARMORNUM
+#endif // DETECT_DEBUG_MOOD
+#endif // ALL_DEBUG_MOOD
 }
 
 void ArmorNumClassifier::setArmorNum(ArmorBox &armor)

@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.26)
-project(autoaim_beta1)
+project(NOTOS_RM_AutoAim)
 
 set(CMAKE_CXX_STANDARD 17)
 
@@ -8,7 +8,7 @@ find_package(fmt REQUIRED)
 
 include_directories(${OpenCV_INCLUDE_DIRS})
 
-add_executable(autoaim_beta1 main.cpp
+add_executable(NOTOS_RM_AutoAim main.cpp
         Armor/findLights.cpp
         Armor/Armor.h
         General/General.h
@@ -30,5 +30,5 @@ add_executable(autoaim_beta1 main.cpp
         Calibration/Calibration.cpp
 )
 
-target_link_libraries(autoaim_beta1 /home/cgnb/MindVision/lib/arm64/libMVSDK.so)
-target_link_libraries(autoaim_beta1 ${OpenCV_LIBRARIES} fmt::fmt pthread)
+target_link_libraries(NOTOS_RM_AutoAim /home/cgnb/MindVision/lib/arm64/libMVSDK.so)
+target_link_libraries(NOTOS_RM_AutoAim ${OpenCV_LIBRARIES} fmt::fmt pthread)

@@ -16,7 +16,7 @@ void autoaimRun()
 {
     detector.loadSVM("../General/123svm.xml");  // todo SVM update
 
-    angleSolver.setCameraParam("../General/camera_params.xml", 1);
+    angleSolver.setCameraParam("../General/camera_params.xml", 2);
     angleSolver.setArmorSize(SMALL_ARMOR, 135, 125);
     angleSolver.setArmorSize(BIG_ARMOR, 230, 127);
     angleSolver.setBulletSpeed(15000);

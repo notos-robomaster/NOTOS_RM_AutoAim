@@ -185,44 +185,44 @@ void AngleSolver::showDebugInfo()
 {
 #ifdef SOLVER_DEBUG_MOOD
 #ifdef SHOW_ANGLE
-    Mat angleImage = Mat::zeros(250, 600, CV_8UC3);
-    putText(angleImage, "Yaw: " + to_string(y_yaw), Point(100, 50),
-            FONT_HERSHEY_SIMPLEX, 1, Scalar(255, 0, 255), 1, 8, false);
-    putText(angleImage, "Pitch: " + to_string(x_pitch), Point(100, 100),
-            FONT_HERSHEY_SIMPLEX, 1, Scalar(255, 0, 255), 1, 8, false);
-    putText(angleImage, "Distance: " + to_string(distance), Point(100, 150),
-            FONT_HERSHEY_SIMPLEX, 1, Scalar(255, 0, 255), 1, 8, false);
+    Mat angleImage = Mat::zeros(250, 420, CV_8UC3);
+    putText(angleImage, "Yaw: " + to_string(y_yaw), Point(50, 50),
+            FONT_HERSHEY_SIMPLEX, 0.8, Scalar(0, 215, 255), 1, 8, false);
+    putText(angleImage, "Pitch: " + to_string(x_pitch), Point(50, 100),
+            FONT_HERSHEY_SIMPLEX, 0.8, Scalar(0, 215, 255), 1, 8, false);
+    putText(angleImage, "Distance: " + to_string(distance), Point(50, 150),
+            FONT_HERSHEY_SIMPLEX, 0.8, Scalar(0, 215, 255), 1, 8, false);
     putText(angleImage, "X: " + to_string((int)(tVec.at<double>(0))), Point(50, 200),
-            FONT_HERSHEY_SIMPLEX, 1, Scalar(255, 0, 255), 1, 8, false);
-    putText(angleImage, "Y: " + to_string((int)(tVec.at<double>(1))), Point(225, 200),
-            FONT_HERSHEY_SIMPLEX, 1, Scalar(255, 0, 255), 1, 8, false);
-    putText(angleImage, "Z: " + to_string((int)(tVec.at<double>(2))), Point(400, 200),
-            FONT_HERSHEY_SIMPLEX, 1, Scalar(255, 0, 255), 1, 8, false);
+            FONT_HERSHEY_SIMPLEX, 0.8, Scalar(0, 125, 255), 1, 8, false);
+    putText(angleImage, "Y: " + to_string((int)(tVec.at<double>(1))), Point(158, 200),
+            FONT_HERSHEY_SIMPLEX, 0.8, Scalar(0, 125, 255), 1, 8, false);
+    putText(angleImage, "Z: " + to_string((int)(tVec.at<double>(2))), Point(275, 200),
+            FONT_HERSHEY_SIMPLEX, 0.8, Scalar(0, 125, 255), 1, 8, false);
     imshow("AngleSolver", angleImage);
 #endif // SHOW_ANGLE
-#ifdef SHOW_TVEC
+#ifdef TEXT_TVEC
     fmt::print(fmt::fg(fmt::color::gray), "\n-----------TVEC------------\n");
     fmt::print(fmt::fg(fmt::color::red), "X: {}\n", tVec.at<double>(0, 0));
     fmt::print(fmt::fg(fmt::color::red), "Y: {}\n", tVec.at<double>(1, 0));
     fmt::print(fmt::fg(fmt::color::red), "Z: {}\n", tVec.at<double>(2, 0));
     fmt::print(fmt::fg(fmt::color::gray), "-----------------------\n");
-#endif // SHOW_TVEC
+#endif // TEXT_TVEC
     float yaw_temp = y_yaw, pitch_temp = x_pitch;
-#ifdef SHOW_P4P
+#ifdef TEXT_P4P
     P4P_solver();
     fmt::print(fmt::fg(fmt::color::gray), "\n-----------P4PSOLVER------------\n");
     fmt::print(fmt::fg(fmt::color::green), "Yaw: {} Pitch: {}\n", y_yaw, x_pitch);
     fmt::print(fmt::fg(fmt::color::gray), "-----------------------\n");
     y_yaw = yaw_temp; x_pitch = pitch_temp;
-#endif // SHOW_P4P
-#ifdef SHOW_PINHOLE
+#endif // TEXT_P4P
+#ifdef TEXT_PINHOLE
     PinHole_solver();
     fmt::print(fmt::fg(fmt::color::gray), "\n-----------PinHoleSOLVER------------\n");
     fmt::print(fmt::fg(fmt::color::green), "Yaw: {} Pitch: {}\n", y_yaw, x_pitch);
     fmt::print(fmt::fg(fmt::color::gray), "-----------------------\n");
     y_yaw = yaw_temp; x_pitch = pitch_temp;
-#endif // SHOW_PINHOLE
-#ifdef SHOW_COMPENSATION
+#endif // TEXT_PINHOLE
+#ifdef TEXT_COMPENSATION
     solveAngles();
     float raw_pitch;
     raw_pitch = x_pitch;
@@ -244,8 +244,8 @@ void AngleSolver::showDebugInfo()
     fmt::print(fmt::fg(fmt::color::green), "Yaw: {} Pitch: {}\n", y_yaw, x_pitch);
     fmt::print(fmt::fg(fmt::color::gray), "-----------------------\n");
     y_yaw = yaw_temp; x_pitch = pitch_temp;
-#endif // SHOW_COMPENSATION
-#ifdef SHOW_CAMERA_PARAMS
+#endif // TEXT_COMPENSATION
+#ifdef TEXT_CAMERA_PARAMS
     fmt::print(fmt::fg(fmt::color::gray), "\n-----------CAMERAPARAMS------------\n");
     cout << "CAMERA MATRIX:" << endl;
     cout << CAMERA_MATRIX << endl;
@@ -253,6 +253,6 @@ void AngleSolver::showDebugInfo()
     cout << "DISTORTION COEFF" << endl;
     cout << DISTORTION_COEFF << endl;
     fmt::print(fmt::fg(fmt::color::gray), "-----------------------\n");
-#endif // SHOW_CAMERA_PARAMS
+#endif // TEXT_CAMERA_PARAMS
 #endif // SOLVER_DEBUG_MOOD
 }

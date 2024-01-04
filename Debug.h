@@ -32,11 +32,11 @@
 //#define TEXT_SCORES // impact info
 
 #define SHOW_ANGLE // show angle result
-#define SHOW_TVEC   // show tVec
-#define SHOW_P4P // show P4P solver
-#define SHOW_PINHOLE    // show PinHole solver
-#define SHOW_COMPENSATION   // show compensation
-#define SHOW_CAMERA_PARAMS  // show camera params
+//#define TEXT_TVEC   // tVec info
+//#define TEXT_P4P // P4P solver info
+//#define TEXT_PINHOLE    // PinHole solver info
+//#define TEXT_COMPENSATION   // compensation info
+//#define TEXT_CAMERA_PARAMS  // camera params info
 
-#define TEXT_FPS    // show fps
+#define TEXT_FPS    // fps info
 //===========================================================================//

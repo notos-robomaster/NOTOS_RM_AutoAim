@@ -2,8 +2,8 @@
 
 sec=5
 cnt=0
-path=/home/cgnb/TheNewBegging/NOTOS_RM_AutoAim
-name=main
+path=/home/cgnb/TheNewBegging/NOTOS_RM_AutoAim/cmake-build-debug
+name=NOTOS_RM_AutoAim
 cd $path
 make clean && make -j
 chmod +x /dev/ttyUSB0

@@ -146,7 +146,7 @@ void showArmors(Mat &image, const vector<ArmorBox> &armors, const ArmorBox &targ
                 FONT_HERSHEY_SIMPLEX, 1, Scalar(255, 255, 0), 1, 8, false);
         for (auto armor : armors)
         {
-//            circle(armorDisplay, armor.center, 1, Scalar(0, 255, 0), 2);
+            circle(armorDisplay, armor.center, 2, Scalar(0, 255, 0), 2);
             for (size_t i = 0; i < 4; i++)
             {
                 line(armorDisplay, armor.armorVertices[i], armor.armorVertices[(i + 1) % 4],

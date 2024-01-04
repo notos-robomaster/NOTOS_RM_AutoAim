@@ -64,3 +64,6 @@
 
 ## League match
 ### 1(Hero), 3(Infantry), 4(Infantry), 6(Base), 7(Sentinel)
+
+# v2ray self-starting script
+### %sudo systemctl start v2raya.service

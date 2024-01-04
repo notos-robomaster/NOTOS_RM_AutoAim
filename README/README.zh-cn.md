@@ -72,3 +72,6 @@
 
 ## 联盟赛
 ### 1(英雄), 3(步兵), 4(步兵), 6(基地), 7(哨兵)
+
+# v2ray 自启动脚本
+### %sudo systemctl start v2raya.service

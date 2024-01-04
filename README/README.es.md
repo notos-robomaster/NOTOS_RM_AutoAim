@@ -71,3 +71,6 @@
 
 ## partido de liga
 ### 1(Héroe), 3(Infantería), 4(Infantería), 6(Base), 7(Centinela)
+
+# script de inicio automático v2ray
+### %sudo systemctl start v2raya.service

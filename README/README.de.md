@@ -71,3 +71,6 @@
 
 ## League Game
 ### 1 (Held), 3 (Infanterie), 4 (Infanterie), 6 (Basis), 7 (Wachposten)
+
+# v2ray selbststartendes Skript
+### %sudo systemctl start v2raya.service

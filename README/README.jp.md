@@ -71,3 +71,6 @@
 
 ## リーグ戦
 ### 1(ヒーロー)、3(歩兵)、4(歩兵)、6(基地)、7(センチネル)
+
+# v2ray 自動起動スクリプト
+### %sudo systemctl start v2raya.service

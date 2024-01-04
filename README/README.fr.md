@@ -72,3 +72,6 @@
 
 ## Match de championnat
 ### 1 (Héros), 3 (Infanterie), 4 (Infanterie), 6 (Base), 7 (Sentinelle)
+
+# script à démarrage automatique v2ray
+### %sudo systemctl start v2raya.service

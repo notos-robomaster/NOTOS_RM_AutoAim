@@ -261,12 +261,15 @@ void SerialPort::TransformData_Part(bool part, int Data_1, int Data_2) // 打包
     Tdata[0] = 0x16;
     Tdata[1] = part;
     Tdata[2] = part_1; // yaw轴判断正负
-    Tdata[3] = Data_1; // yaw轴角度
-    Tdata[4] = part_2; // pitch轴判断正负
-    Tdata[5] = Data_2; // pitch轴角度
+    memcpy(Tdata+3,&Data_1,sizeof (int ));
+
+    //Tdata[3] = Data_1; // yaw轴角度
+    Tdata[7] = part_2; // pitch轴判断正负
+    memcpy(Tdata+8,&Data_2,sizeof (int ));
+    //Tdata[5] = Data_2; // pitch轴角度
 //    Append_CRC8_Check_Sum(Tdata, 7);
-    Tdata[6] = 0xFE;
-    *len = 7;
+    Tdata[12] = 0xFE;
+    *len = 13;
 }
 
 // 关闭通讯协议接口

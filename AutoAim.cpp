@@ -2,9 +2,11 @@
 #include "General/General.h"
 #include "AngleSolver/AngleSolver.h"
 #include "Serial/serialport.cpp"
+#include "Filter/Kalman.h"
 
 ArmorDetector detector;
 AngleSolver angleSolver;
+Kalman kalman;
 
 int targetNum = 3;
 //Color ENEMYCOLOR = BLUE;
@@ -43,6 +45,7 @@ void autoaimRun()
             vector<Point2f> contourPoints;
             ArmorType type;
             detector.getTargetInfo(contourPoints, centerPoint, type);
+            kalman.predictRun(centerPoint);
             angleSolver.getAngle(contourPoints, centerPoint, SMALL_ARMOR, yaw, pitch, distance);
         }
 
@@ -59,6 +62,7 @@ void autoaimRun()
         if (detector.isFoundArmor())
         {
             angleSolver.showDebugInfo();
+            kalman.showDebugInfo(src);
         }
 #endif // ALL_DEBUG_MOOD
 

@@ -192,11 +192,11 @@ void AngleSolver::showDebugInfo()
             FONT_HERSHEY_SIMPLEX, 0.8, Scalar(0, 215, 255), 1, 8, false);
     putText(angleImage, "Distance: " + to_string(distance), Point(50, 150),
             FONT_HERSHEY_SIMPLEX, 0.8, Scalar(0, 215, 255), 1, 8, false);
-    putText(angleImage, "X: " + to_string((int)(tVec.at<double>(0))), Point(50, 200),
+    putText(angleImage, "X:" + to_string((int)(tVec.at<double>(0))), Point(50, 200),
             FONT_HERSHEY_SIMPLEX, 0.8, Scalar(0, 125, 255), 1, 8, false);
-    putText(angleImage, "Y: " + to_string((int)(tVec.at<double>(1))), Point(158, 200),
+    putText(angleImage, "Y:" + to_string((int)(tVec.at<double>(1))), Point(158, 200),
             FONT_HERSHEY_SIMPLEX, 0.8, Scalar(0, 125, 255), 1, 8, false);
-    putText(angleImage, "Z: " + to_string((int)(tVec.at<double>(2))), Point(275, 200),
+    putText(angleImage, "Z:" + to_string((int)(tVec.at<double>(2))), Point(275, 200),
             FONT_HERSHEY_SIMPLEX, 0.8, Scalar(0, 125, 255), 1, 8, false);
     imshow("AngleSolver", angleImage);
 #endif // SHOW_ANGLE

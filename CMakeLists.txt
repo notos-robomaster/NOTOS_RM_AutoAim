@@ -28,6 +28,8 @@ add_executable(NOTOS_RM_AutoAim main.cpp
         AngleSolver/AngleSolver.cpp
         AngleSolver/AngleSolver.h
         Calibration/Calibration.cpp
+        Filter/Kalman.cpp
+        Filter/Kalman.h
 )
 
 target_link_libraries(NOTOS_RM_AutoAim /home/cgnb/MindVision/lib/arm64/libMVSDK.so)

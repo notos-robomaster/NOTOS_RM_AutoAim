@@ -1,9 +1,12 @@
 //===========================================================================//
 //                          FIXME: debug options
+// open v2ray $ sudo systemctl start v2raya.service
+// open serialPort $ sudo chmod 777 /dev/ttyUSB0
 //- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -//
 #define ALL_DEBUG_MOOD  // show all file
 #define DETECT_DEBUG_MOOD   // show armor file
 #define SOLVER_DEBUG_MOOD   // show solver file
+#define PREDICT_DEBUG_MOOD  // show predict file
 //===========================================================================//
 
 
@@ -37,6 +40,8 @@
 //#define TEXT_PINHOLE    // PinHole solver info
 //#define TEXT_COMPENSATION   // compensation info
 //#define TEXT_CAMERA_PARAMS  // camera params info
+
+#define SHOW_PREDICT    // show predict info
 
 #define TEXT_FPS    // fps info
 //===========================================================================//

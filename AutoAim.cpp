@@ -45,7 +45,7 @@ void autoaimRun()
             vector<Point2f> contourPoints;
             ArmorType type;
             detector.getTargetInfo(contourPoints, centerPoint, type);
-            kalman.predictRun(centerPoint);
+            centerPoint = kalman.predictRun(centerPoint);
             angleSolver.getAngle(contourPoints, centerPoint, SMALL_ARMOR, yaw, pitch, distance);
         }
 

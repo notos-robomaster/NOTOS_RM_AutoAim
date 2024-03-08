@@ -1,6 +1,4 @@
 #include "serialport.h"
-// int Data_1=2,Data_2=2,Data_3=3,Data_4=4,Data_5=5,Data_6=6,Data_7=7;
-// int part = 1;
 
 int length = 8;
 // int *ptr = &part;
@@ -226,6 +224,13 @@ int SerialPort::set_Bit()
 void SerialPort::send()
 {
     write(fd, Tdata, length);
+}
+
+bool SerialPort::receive()
+{
+    read(fd, Rdata, 1);
+//    Rdata[0] = 0x00;
+    return Rdata[0];
 }
 
 void SerialPort::TransformData_Global(int Data_1, int Data_2, int Data_3, int Data_4, int Data_5, int Data_6) // 打包 全局

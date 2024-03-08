@@ -52,6 +52,7 @@ void autoaimRun()
         // Serial
         port.TransformData_Part(detector.isFoundArmor(), yaw, pitch);
         port.send();
+        cout << port.receive();
 
         detector.setTargetNum(targetNum);
 

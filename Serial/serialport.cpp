@@ -226,11 +226,11 @@ void SerialPort::send()
     write(fd, Tdata, length);
 }
 
-bool SerialPort::receive()
+void SerialPort::receive() // 接收
 {
-    read(fd, Rdata, 1);
-//    Rdata[0] = 0x00;
-    return Rdata[0];
+    kar_bool = read(fd, Rdata[0], 1); // 卡尔曼开关
+    // Rdata[0] = 0x00;
+    arr_num = read(fd, Rdata[1], 1); // 装甲板号码
 }
 
 void SerialPort::TransformData_Global(int Data_1, int Data_2, int Data_3, int Data_4, int Data_5, int Data_6) // 打包 全局
@@ -250,7 +250,7 @@ void SerialPort::TransformData_Global(int Data_1, int Data_2, int Data_3, int Da
 
 void SerialPort::TransformData_Part(bool part, int Data_1, int Data_2) // 打包 局部
 {
-    bool part_1 , part_2;
+    bool part_1, part_2;
     part_1 = 1;
     part_2 = 1;
     if (Data_1 < 0)
@@ -266,12 +266,12 @@ void SerialPort::TransformData_Part(bool part, int Data_1, int Data_2) // 打包
     Tdata[0] = 0x16;
     Tdata[1] = part;
     Tdata[2] = part_1; // yaw轴判断正负
-//    memcpy(Tdata+3, &Data_1, sizeof(int));  // yaw轴角度1
+                       //    memcpy(Tdata+3, &Data_1, sizeof(int));  // yaw轴角度1
     Tdata[3] = Data_1; // yaw轴角度2
     Tdata[4] = part_2; // pitch轴判断正负
-//    memcpy(Tdata+8, &Data_2, sizeof(int));  // pitch轴角度1
+                       //    memcpy(Tdata+8, &Data_2, sizeof(int));  // pitch轴角度1
     Tdata[5] = Data_2; // pitch轴角度2
-//    Append_CRC8_Check_Sum(Tdata, 7);
+                       //    Append_CRC8_Check_Sum(Tdata, 7);
     Tdata[6] = 0x07;
     Tdata[7] = 0xFE;
     *len = 8;

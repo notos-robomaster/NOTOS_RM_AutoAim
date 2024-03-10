@@ -9,23 +9,23 @@ AngleSolver angleSolver;
 Kalman kalman;
 
 int targetNum = 3;
-//Color ENEMYCOLOR = BLUE;
+// Color ENEMYCOLOR = BLUE;
 Color ENEMYCOLOR = RED;
 
 bool bRun = true;
 
 void autoaimRun()
 {
-    detector.loadSVM("../General/123svm.xml");  // todo SVM update
+    detector.loadSVM("../General/123svm.xml"); // todo SVM update
 
     angleSolver.setCameraParam("../General/camera_params.xml", 2);
     angleSolver.setArmorSize(SMALL_ARMOR, 135, 125);
     angleSolver.setArmorSize(BIG_ARMOR, 230, 127);
     angleSolver.setBulletSpeed(15000);
 
-    char ttyUSB_path[] = "/dev/ttyUSB0";    //设置串口名称
-    SerialPort port(ttyUSB_path);   //创建串口类对象
-    port.initSerialPort();  //串口初始化
+    char ttyUSB_path[] = "/dev/ttyUSB0"; // 设置串口名称
+    SerialPort port(ttyUSB_path);        // 创建串口类对象
+    port.initSerialPort();               // 串口初始化
 
     imageInit();
 
@@ -52,10 +52,9 @@ void autoaimRun()
         // Serial
         port.TransformData_Part(detector.isFoundArmor(), yaw, pitch);
         port.send();
-        cout << port.receive();
-
+        cout << SerialPort::Rdata[0]; // 测试前位
+        cout << SerialPort::Rdata[1]; // 测试后位
         detector.setTargetNum(targetNum);
-
         fpsUpdating();
 
 #ifdef ALL_DEBUG_MOOD
@@ -70,36 +69,36 @@ void autoaimRun()
         char chKey = waitKey(1);
         switch (chKey)
         {
-            case '0':
-                targetNum = 0;
-            case '1':
-                targetNum = 1;
-                break;
-            case '2':
-                targetNum = 2;
-                break;
-            case '3':
-                targetNum = 3;
-                break;
-            case 'i':
-            case 'I':
-                targetNum = 4;
-                break;
-            case 'b':
-            case 'B':
-                ENEMYCOLOR = BLUE;
-                break;
-            case 'r':
-            case 'R':
-                ENEMYCOLOR = RED;
-                break;
-            case 'q':
-            case 'Q':
-            case 27:
-                bRun = false;
-                break;
-            default:
-                break;
+        case '0':
+            targetNum = 0;
+        case '1':
+            targetNum = 1;
+            break;
+        case '2':
+            targetNum = 2;
+            break;
+        case '3':
+            targetNum = 3;
+            break;
+        case 'i':
+        case 'I':
+            targetNum = 4;
+            break;
+        case 'b':
+        case 'B':
+            ENEMYCOLOR = BLUE;
+            break;
+        case 'r':
+        case 'R':
+            ENEMYCOLOR = RED;
+            break;
+        case 'q':
+        case 'Q':
+        case 27:
+            bRun = false;
+            break;
+        default:
+            break;
         }
     } while (bRun);
 }

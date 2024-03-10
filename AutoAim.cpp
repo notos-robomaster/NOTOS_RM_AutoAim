@@ -8,14 +8,11 @@ ArmorDetector detector;
 AngleSolver angleSolver;
 Kalman kalman;
 
+int targetNum = 3;
 //Color ENEMYCOLOR = BLUE;
 Color ENEMYCOLOR = RED;
 
-int targetNum = 3;
-unsigned char readData[4];
-
 bool bRun = true;
-bool firstTime = true;
 
 void autoaimRun()
 {
@@ -36,25 +33,6 @@ void autoaimRun()
     {
         fpsInit();
 
-        // Serial
-        port.receive(readData);
-//        for (int i = 1; i < sizeof(readData)/sizeof(readData[0]); i++)
-//        {
-//            cout << readData[i] << endl;
-//        }
-
-        // Wait for the referee system to read the color
-        if (firstTime)
-        {
-            if (readData[3] == 3)
-            {
-                firstTime = false;
-                // if data is 0, mean our COLOR is RED; enemy COLOR is BLUE
-                if (readData[2] == 0)   ENEMYCOLOR = BLUE;
-                if (readData[2] == 1)   ENEMYCOLOR = RED;
-            }
-        }
-
         detector.setEnemyColor(ENEMYCOLOR);
         imageUpdating();
         detector.setImg(src);
@@ -74,16 +52,7 @@ void autoaimRun()
         // Serial
         port.TransformData_Part(detector.isFoundArmor(), yaw, pitch);
         port.send();
-
-        if (readData[3] == 3)
-        {
-            if (readData[1] == 1)       targetNum = 1;
-            else if (readData[1] == 2)  targetNum = 2;
-            else if (readData[1] == 3)  targetNum = 3;
-            else if (readData[1] == 4)  targetNum = 4;
-            else if (readData[1] == 5)  targetNum = 5;
-            else if (readData[1] == 6)  targetNum = 6;
-        }
+        cout << port.receive();
 
         detector.setTargetNum(targetNum);
 

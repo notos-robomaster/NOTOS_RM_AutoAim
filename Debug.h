@@ -44,4 +44,6 @@
 #define SHOW_PREDICT    // show predict info
 
 #define TEXT_FPS    // fps info
+
+#define WAIT_COLOR  // wait referee system to read color
 //===========================================================================//

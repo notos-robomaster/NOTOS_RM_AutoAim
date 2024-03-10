@@ -1,6 +1,7 @@
 #include "serialport.h"
 
 int length = 8;
+int rLength = 4;
 // int *ptr = &part;
 int *len = &length;
 
@@ -226,11 +227,24 @@ void SerialPort::send()
     write(fd, Tdata, length);
 }
 
-bool SerialPort::receive()
-{
-    read(fd, Rdata, 1);
-//    Rdata[0] = 0x00;
-    return Rdata[0];
+//bool SerialPort::receive()
+//{
+//    read(fd, Rdata, 3);
+////    Rdata[0] = 0x00;
+//    return Rdata;
+//}
+
+void SerialPort::receive(unsigned char* data) {
+    read(fd, Rdata, rLength);
+    if (Rdata[3] == 3)
+    {
+        memcpy(data, Rdata, rLength);
+    } else
+    {
+#ifdef WAIT_COLOR
+        fmt::print(fmt::fg(fmt::color::yellow), "Wait for the referee system to read the color");
+#endif // WAIT_COLOR
+    }
 }
 
 void SerialPort::TransformData_Global(int Data_1, int Data_2, int Data_3, int Data_4, int Data_5, int Data_6) // 打包 全局

@@ -37,7 +37,7 @@ private:
     int speed, databits, stopbits, parity;
     unsigned char rdata[255]; //原数据
     unsigned char Tdata[30];  //处理后数据
-    unsigned char Rdata[1];
+    unsigned char Rdata[4];
 	void set_Brate();
 	int set_Bit();
 public:
@@ -47,7 +47,8 @@ public:
 	void TransformData_Part(bool part, int Data_1, int Data_2);
     void TransformData_Global(int Data_1, int Data_2, int Data_3, int Data_4, int Data_5, int Data_6);
 	void send();//piuuuu～
-    bool receive();//ahhhhh～
+//    bool receive();//ahhhhh～
+    void receive(unsigned char* data);//ahhhhh～
 	void closePort();//关串口
 };
 

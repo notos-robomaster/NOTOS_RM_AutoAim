@@ -18,7 +18,6 @@
 #include <iostream>
 #include "CRC_Check.cpp"
 using namespace std;
-using ReceiveCallback = function<void (char*, int)>;
 
 #define TRUE 1
 #define FALSE 0

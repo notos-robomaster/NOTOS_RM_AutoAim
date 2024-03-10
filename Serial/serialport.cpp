@@ -242,7 +242,7 @@ void SerialPort::receive(unsigned char* data) {
     } else
     {
 #ifdef WAIT_COLOR
-        fmt::print(fmt::fg(fmt::color::yellow), "Wait for the referee system to read the color");
+        fmt::print(fmt::fg(fmt::color::yellow), "Waiting for the serial port to receive data");
 #endif // WAIT_COLOR
     }
 }

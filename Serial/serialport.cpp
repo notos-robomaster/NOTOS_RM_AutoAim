@@ -228,9 +228,9 @@ void SerialPort::send()
 
 void SerialPort::receive() // 接收
 {
-    kar_bool = read(fd, Rdata[0], 1); // 卡尔曼开关
+    read(fd, &Rdata[0], 1); // 卡尔曼开关
     // Rdata[0] = 0x00;
-    arr_num = read(fd, Rdata[1], 1); // 装甲板号码
+    //arr_num = read(fd, &Rdata[1], 1); // 装甲板号码
 }
 
 void SerialPort::TransformData_Global(int Data_1, int Data_2, int Data_3, int Data_4, int Data_5, int Data_6) // 打包 全局

@@ -37,14 +37,13 @@ private:
     int speed, databits, stopbits, parity;
     unsigned char rdata[255]; // 原数据
     unsigned char Tdata[30];  // 处理后数据
-    unsigned char Rdata[2];   // 接收数据
     void set_Brate();
     int set_Bit();
 
 public:
     SerialPort();
     SerialPort(char *);
-
+    unsigned char Rdata[2];   // 接收数据
     bool initSerialPort(); // 串口初始化
     void TransformData_Part(bool part, int Data_1, int Data_2);
     void TransformData_Global(int Data_1, int Data_2, int Data_3, int Data_4, int Data_5, int Data_6);

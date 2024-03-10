@@ -52,8 +52,13 @@ void autoaimRun()
         // Serial
         port.TransformData_Part(detector.isFoundArmor(), yaw, pitch);
         port.send();
-        cout << SerialPort::Rdata[0]; // 测试前位
-        cout << SerialPort::Rdata[1]; // 测试后位
+        SerialPort data; //test
+        if (data.Rdata[0] == 0x00){
+            cout << "off"; }// 测试前位
+        else{
+            cout << "on";
+        }
+        //cout << data.Rdata[1]; // 测试后位
         detector.setTargetNum(targetNum);
         fpsUpdating();
 

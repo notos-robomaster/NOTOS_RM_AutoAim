@@ -46,7 +46,6 @@ public:
 	void TransformData_Part(bool part, int Data_1, int Data_2);
     void TransformData_Global(int Data_1, int Data_2, int Data_3, int Data_4, int Data_5, int Data_6);
 	void send();//piuuuu～
-//    bool receive();//ahhhhh～
     void receive(unsigned char* data);//ahhhhh～
 	void closePort();//关串口
 };

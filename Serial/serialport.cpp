@@ -1,7 +1,7 @@
 #include "serialport.h"
 
 int length = 8;
-int rLength = 4;
+int rLength = 2;
 // int *ptr = &part;
 int *len = &length;
 
@@ -227,22 +227,27 @@ void SerialPort::send()
     write(fd, Tdata, length);
 }
 
-//bool SerialPort::receive()
-//{
-//    read(fd, Rdata, 3);
-////    Rdata[0] = 0x00;
-//    return Rdata;
-//}
-
-void SerialPort::receive(unsigned char* data) {
+void SerialPort::receive(unsigned char* data)
+{
     read(fd, Rdata, rLength);
-    if (Rdata[3] == 3)
+    if (Rdata[1] == 0x03)
     {
         memcpy(data, Rdata, rLength);
+        cout << "test_test_test1" << endl;
+        for (int i = 0; i < sizeof(Rdata)/sizeof(Rdata[0]); i++)
+        {
+            cout << (int)Rdata[i] << endl;
+        }
+        cout << "test_test_test2" << endl;
+        for (int i = 0; i < sizeof(data)/sizeof(data[0]); i++)
+        {
+            cout << (int)data[i] << endl;
+        }
+        cout << "test_test_test3" << endl;
     } else
     {
 #ifdef WAIT_COLOR
-        fmt::print(fmt::fg(fmt::color::yellow), "Waiting for the serial port to receive data");
+        fmt::print(fmt::fg(fmt::color::dark_red), "Waiting for the serial port to receive data!");
 #endif // WAIT_COLOR
     }
 }

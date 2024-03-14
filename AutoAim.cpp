@@ -12,7 +12,7 @@ Kalman kalman;
 Color ENEMYCOLOR = RED;
 
 int targetNum = 3;
-unsigned char readData[4];
+unsigned char readData[2];
 
 bool bRun = true;
 bool firstTime = true;
@@ -38,15 +38,15 @@ void autoaimRun()
 
         // Serial
         port.receive(readData);
-//        for (int i = 1; i < sizeof(readData)/sizeof(readData[0]); i++)
-//        {
-//            cout << readData[i] << endl;
-//        }
+        for (int i = 0; i < sizeof(readData)/sizeof(readData[0]); i++)
+        {
+            cout << (int)readData[i] << endl;
+        }
 
         // Wait for the referee system to read the color
         if (firstTime)
         {
-            if (readData[3] == 3)
+            if (readData[3] == 0x03)
             {
                 firstTime = false;
                 // if data is 0, mean our COLOR is RED; enemy COLOR is BLUE

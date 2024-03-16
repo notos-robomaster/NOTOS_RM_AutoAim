@@ -37,6 +37,9 @@ private slots:
 
     /**
      * @brief handle click events
+     *  mouse left button is calibration point
+     *  mouse middle button is continue plot
+     *  mouse right button is interrupt plot
      * @param event
      */
     void clicked_Graph(QMouseEvent *event);

@@ -95,7 +95,7 @@ void MotionDetect::clicked_Graph(QMouseEvent *event)
     if (button_flag == 2)
     {
         mouse_flag_ = 1;
-    } else
+    } else if (button_flag == 4)
     {
         mouse_flag_ = 0;
     }

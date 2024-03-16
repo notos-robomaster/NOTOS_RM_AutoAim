@@ -227,6 +227,7 @@ void SerialPort::send()
     write(fd, Tdata, length);
 }
 
+#ifdef WAIT_RECEIVE
 void SerialPort::receive(unsigned char* data)
 {
     /**
@@ -255,6 +256,7 @@ void SerialPort::receive(unsigned char* data)
         fmt::print(fmt::fg(fmt::color::dark_red), "Waiting for the serial port to receive data!\n");
     }
 }
+#endif // WAIT_RECEIVE
 
 void SerialPort::TransformData_Global(int Data_1, int Data_2, int Data_3, int Data_4, int Data_5, int Data_6) // 打包 全局
 {

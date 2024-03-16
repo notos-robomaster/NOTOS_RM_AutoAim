@@ -3,16 +3,22 @@
 #include "AngleSolver/AngleSolver.h"
 #include "Serial/serialport.cpp"
 #include "Filter/Kalman.h"
+#include "GraphWindow/MotionDetection.h"
+
+int argc;
+char **argv = nullptr;
 
 ArmorDetector detector;
 AngleSolver angleSolver;
 Kalman kalman;
+QApplication a(argc, argv);
+MotionDetect motionDetect;
 
 //Color ENEMYCOLOR = BLUE;
 Color ENEMYCOLOR = RED;
 
 int targetNum = 3;
-unsigned char readData[2];
+unsigned char readData[3];
 
 bool bRun = true;
 bool firstTime = true;
@@ -37,11 +43,12 @@ void autoaimRun()
         fpsInit();
 
         // Serial
+#ifdef WAIT_RECEIVE
         port.receive(readData);
-        for (int i = 0; i < sizeof(readData)/sizeof(readData[0]); i++)
-        {
-            cout << (int)readData[i] << endl;
-        }
+//        for (int i = 0; i < sizeof(readData)/sizeof(readData[0]); i++)
+//        {
+//            cout << (int)readData[i] << endl;
+//        }
 
         // Wait for the referee system to read the color
         if (firstTime)
@@ -54,6 +61,7 @@ void autoaimRun()
                 if (readData[2] == 1)   ENEMYCOLOR = RED;
             }
         }
+#endif // WAIT_RECEIVE
 
         detector.setEnemyColor(ENEMYCOLOR);
         imageUpdating();
@@ -75,6 +83,7 @@ void autoaimRun()
         port.TransformData_Part(detector.isFoundArmor(), yaw, pitch);
         port.send();
 
+#ifdef WAIT_RECEIVE
         if (readData[3] == 3)
         {
             if (readData[1] == 1)       targetNum = 1;
@@ -84,12 +93,17 @@ void autoaimRun()
             else if (readData[1] == 5)  targetNum = 5;
             else if (readData[1] == 6)  targetNum = 6;
         }
+#endif // WAIT_RECEIVE
 
         detector.setTargetNum(targetNum);
 
         fpsUpdating();
 
 #ifdef ALL_DEBUG_MOOD
+#ifdef SHOW_PLOT
+        motionDetect.setPoint(yaw, 0);
+        motionDetect.setPoint(pitch, 1);
+#endif // SHOW_PLOT
         detector.showDebugInfo();
         if (detector.isFoundArmor())
         {

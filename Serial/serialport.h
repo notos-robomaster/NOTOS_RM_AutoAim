@@ -36,7 +36,7 @@ private:
     int speed, databits, stopbits, parity;
     unsigned char rdata[255]; //原数据
     unsigned char Tdata[30];  //处理后数据
-    unsigned char Rdata[4];
+    unsigned char Rdata[3];
 	void set_Brate();
 	int set_Bit();
 public:

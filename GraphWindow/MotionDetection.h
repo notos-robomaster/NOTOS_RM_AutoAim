@@ -9,22 +9,46 @@ class MotionDetect: public QMainWindow
 {
     Q_OBJECT
 public:
-    explicit MotionDetect();
+    explicit MotionDetect(QWidget *parent = nullptr);
 
+    /**
+     * @brief set different to points to draw the image
+     * @param x
+     * @param y
+     */
     void setPoint(double x, int y);
 
+    /**
+     * @brief clear different points
+     */
     void clearData();
 
+    /**
+     * @brief show points on image
+     */
     void showPlot();
 
 private slots:
 
+    /**
+     * @brief clear points on show image
+     */
     void on_ptn_clear_clicked();
 
+    /**
+     * @brief handle click events
+     * @param event
+     */
     void clicked_Graph(QMouseEvent *event);
 
+    /**
+     * @brief stop display curves
+     */
     void on_btn_stop_clicked();
 
+    /**
+     * @brief start display curves
+     */
     void on_btn_start_clicked();
 
 private:

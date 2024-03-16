@@ -11,13 +11,25 @@ class Kalman
 public:
     Kalman();
 
-    // run prediction kalman
+    /**
+     * @brief run prediction kalman
+     * @param point
+     * @return predicted point
+     */
     Point2f predictRun(Point2f &point);
 
-    // show prediction image
+    /**
+     * @brief show prediction image
+     * @param image
+     * @param statePt
+     * @param predictPt
+     */
     void showPredict(Mat &image, Point &statePt, Point &predictPt);
 
-    // show all predict debug info
+    /**
+     * @brief show all predict debug info
+     * @param image
+     */
     void showDebugInfo(Mat &image);
 
 private:

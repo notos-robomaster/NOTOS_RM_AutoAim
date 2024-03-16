@@ -1,23 +1,20 @@
 #include "MotionDetection.h"
 
-MotionDetect::MotionDetect()
+MotionDetect::MotionDetect(QWidget *parent):
+        QMainWindow(parent)
 {
     plot.addGraph();
     plot.graph(0)->setScatterStyle(QCPScatterStyle::ssCross);
-    plot.graph(0)->setPen(QPen(Qt::red));
+    plot.graph(0)->setPen(QPen(Qt::darkRed));
     plot.graph(0)->setLineStyle(QCPGraph::lsLine);
-
 
     plot.addGraph();
     plot.graph(1)->setScatterStyle(QCPScatterStyle::ssCross);
-    plot.graph(1)->setPen(QPen(Qt::blue));
+    plot.graph(1)->setPen(QPen(Qt::lightGray));
     plot.graph(1)->setLineStyle(QCPGraph::lsLine);
     plot.setInteractions(QCP::iRangeDrag | QCP::iRangeZoom);
 
     connect(&plot, SIGNAL(mousePress(QMouseEvent *)), this, SLOT(clicked_Graph(QMouseEvent *)));
-
-    plot.show();
-    plot.replot();
 
     programe_start_time = cv::getTickCount();
 }
@@ -75,8 +72,9 @@ void MotionDetect::showPlot()
     {
         plot.graph(0)->setData(qv_t1, qv_x);
         plot.graph(1)->setData(qv_t2, qv_y);
-        plot.replot();
     }
+    plot.replot();
+    plot.show();
 }
 
 void MotionDetect::on_ptn_clear_clicked()
@@ -90,11 +88,11 @@ void MotionDetect::clicked_Graph(QMouseEvent *event)
     QPoint point = event->pos();
     double m_x = plot.xAxis->pixelToCoord(point.x());
     double m_y = plot.xAxis->pixelToCoord(point.y());
-    qDebug() << m_x << m_y;
+    qDebug() << "m_x:" << m_x << "m_y:" << m_y;
 
     int button_flag = event->button();
     QVector<double> qv_tmp;
-    if (button_flag == 1)
+    if (button_flag == 2)
     {
         mouse_flag_ = 1;
     } else

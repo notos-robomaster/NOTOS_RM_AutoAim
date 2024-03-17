@@ -5,14 +5,15 @@
 #include "Filter/Kalman.h"
 #include "GraphWindow/MotionDetection.h"
 
-int argc;
-char **argv = nullptr;
-
 ArmorDetector detector;
 AngleSolver angleSolver;
 Kalman kalman;
+#ifdef SHOW_PLOT
+int argc;
+char **argv = nullptr;
 QApplication a(argc, argv);
 MotionDetect motionDetect;
+#endif // SHOW_PLOT
 
 //Color ENEMYCOLOR = BLUE;
 Color ENEMYCOLOR = RED;

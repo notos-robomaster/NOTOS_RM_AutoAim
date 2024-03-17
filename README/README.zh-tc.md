@@ -2,9 +2,9 @@
 本項目為廣州南方學院南風戰隊2024年賽季視覺功能完整代碼
 
 ---
-[![切换简体中文](https://img.shields.io/badge/切换语言-简体中文-blue)](https://github.com/lizuju/NOTOS_RM_AutoAim/blob/main/README/README.zh-cn.md)
-[![切換繁體中文](https://img.shields.io/badge/切換語言-繁體中文-blue)](https://github.com/lizuju/NOTOS_RM_AutoAim/blob/main/README/README.zh-tc.md)
-[![Switch to English](https://img.shields.io/badge/Switch-English-blue)](https://github.com/lizuju/NOTOS_RM_AutoAim/blob/main/README.md)
+[![切换简体中文](https://img.shields.io/badge/切换语言-简体中文-blue)](https://github.com/notos-robomaster/NOTOS_RM_AutoAim/blob/main/README/README.zh-cn.md)
+[![切換繁體中文](https://img.shields.io/badge/切換語言-繁體中文-blue)](https://github.com/notos-robomaster/NOTOS_RM_AutoAim/blob/main/README/README.zh-tc.md)
+[![Switch to English](https://img.shields.io/badge/Switch-English-blue)](https://github.com/notos-robomaster/NOTOS_RM_AutoAim/blob/main/README.md)
 ---
 
 ## 存儲庫描述

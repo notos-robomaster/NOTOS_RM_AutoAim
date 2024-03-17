@@ -1,5 +1,5 @@
 # NOTOS_RM_AutoAim
-#### This project is the complete code for the visual function of the Guangzhou Nanfeng College Notos Team in the 2024 season.
+This project is the complete code for the visual function of the Guangzhou Nanfeng College Notos Team in the 2024 season.
 
 ---
 [![切换简体中文](https://img.shields.io/badge/切换语言-简体中文-blue)](https://github.com/lizuju/NOTOS_RM_AutoAim/blob/main/README/README.zh-cn.md)
@@ -7,9 +7,9 @@
 [![Switch to English](https://img.shields.io/badge/Switch-English-blue)](https://github.com/lizuju/NOTOS_RM_AutoAim/blob/main/README.md)
 ---
 
-# Repository Description
+## Repository description
+Repository directory
 
-## Repository Directory
      .
      ├── AngleSolver                // angle solver library, including angle solver class
      │ ├── AngleSolver.cpp          // angle solution file
@@ -31,6 +31,11 @@
      │ ├── 123svm.xml               // digital classifier
      │ ├── camera_params.xml        // camera configuration file
      │ └── General.h                // general header file
+     ├── GraphWindow                // Graph window
+     │ ├── MotionDetection.cpp      // Motion detection file
+     │ ├── MotionDetection.h        // Motion detection header file
+     │ ├── qcustomplot.cpp          // qt plot configuration file
+     │ └── qcustomplot.h            // qt plot configuration header file
      ├── Filter                     // filter solve
      │ ├── Kalman.cpp               // kalman solve file
      │ └── Kalman.cpp               // kalman solve header file
@@ -58,16 +63,36 @@
      ├── README.md                  // project description file
      └── WatchDog.sh                // self-starting script
 
-# Description of arms
+## Communication protocol with stm32
+Mini PC sent:
 
-## Super Contest
-### 1(Hero), 2(Engineer), 3(Infantry), 4(Infantry), 5(Outpost), 6(Base), 7(Sentinel)
+| Byte0 | Byte1 | Byte2          | Byte3        | Byte4            | Byte5          | Byte6     | Byte7 |
+|-------|-------------|----------------|--------------|------------------|----------------|-----------|-------|
+| 0x16  | IsHaveArmor | YawAngleSymbol | YawAngleData | PitchAngleSymbol | PitchAngleData | CRC_Check | 0xFE  |
 
-## League match
-### 1(Hero), 3(Infantry), 4(Infantry), 6(Base), 7(Sentinel)
+Mini PC receive:
 
-# v2ray self-starting script
-### $sudo systemctl start v2raya.service
+| Byte0        | Byte1          | Byte2      | Byte3   |
+|--------------|----------------|------------|---------|
+| IsHaveKalman | ArmorSelection | ArmorColor | 0x03 |
 
-# open the serialPort script
-### $sudo chmod 777 /dev/ttyUSB0
+## Graph window
+Motion detection handle click events
+
+| MouseLeftButton  | MouseMiddleButton | MouseRightButton |
+|------------------|-------------------|------------------|
+| CalibrationPoint | ContinuePlot      | InterruptPlot    |
+
+## Description of arms
+
+### Super contest
+1(Hero), 2(Engineer), 3(Infantry), 4(Infantry), 5(Outpost), 6(Base), 7(Sentinel)
+
+### League match
+1(Hero), 3(Infantry), 4(Infantry), 6(Base), 7(Sentinel)
+
+## v2ray self-starting script
+$sudo systemctl start v2raya.service
+
+## open the serialPort script
+$sudo chmod 777 /dev/ttyUSB0

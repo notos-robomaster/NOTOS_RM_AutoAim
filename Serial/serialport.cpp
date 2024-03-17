@@ -230,12 +230,6 @@ void SerialPort::send()
 #ifdef WAIT_RECEIVE
 void SerialPort::receive(unsigned char* data)
 {
-    /**
-     *  Rdata[0] is kalman
-     *  Rdata[1] is Armor selection
-     *  Rdata[2] is referee system
-     *  Rdata[3] is flag bit
-     */
     read(fd, Rdata, rLength);
     if (Rdata[3] == 0x03)
     {

@@ -46,6 +46,12 @@ public:
 	void TransformData_Part(bool part, int Data_1, int Data_2);
     void TransformData_Global(int Data_1, int Data_2, int Data_3, int Data_4, int Data_5, int Data_6);
 	void send();//piuuuu～
+    /**
+     *  Rdata[0] is kalman,
+     *  Rdata[1] is Armor selection,
+     *  Rdata[2] is Armor color,
+     *  Rdata[3] is flag bit
+     */
     void receive(unsigned char* data);//ahhhhh～
 	void closePort();//关串口
 };

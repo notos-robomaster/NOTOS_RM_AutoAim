@@ -1,5 +1,5 @@
 # NOTOS_RM_AutoAim
-#### 本項目為廣州南方學院南風戰隊2024年賽季視覺功能完整代碼
+本項目為廣州南方學院南風戰隊2024年賽季視覺功能完整代碼
 
 ---
 [![切换简体中文](https://img.shields.io/badge/切换语言-简体中文-blue)](https://github.com/lizuju/NOTOS_RM_AutoAim/blob/main/README/README.zh-cn.md)
@@ -7,9 +7,9 @@
 [![Switch to English](https://img.shields.io/badge/Switch-English-blue)](https://github.com/lizuju/NOTOS_RM_AutoAim/blob/main/README.md)
 ---
 
-# 存儲庫描述
+## 存儲庫描述
+存儲庫目錄
 
-## 存儲庫目錄
     .
     ├── AngleSolver                // 角度解算器庫，包含角度解算器類
     │ ├── AngleSolver.cpp          // 角度解算檔案
@@ -34,6 +34,11 @@
     │ ├── 123svm.xml               // 數位分類器
     │ ├── camera_params.xml        // 相機配置檔
     │ └── General.h                // 通用頭檔
+    ├── GraphWindow                // 圖表窗口
+    │ ├── MotionDetection.cpp      // 運動偵測檔案
+    │ ├── MotionDetection.h        // 運動偵測頭檔
+    │ ├── qcustomplot.cpp          // qt繪圖配置檔案
+    │ └── qcustomplot.h            // qt繪圖配置頭檔
     ├── MindVision                 // 相機檔案
     │ ├── head                     // 相機頭檔
     │ │ ├── CameraApi.h            // 相機API檔
@@ -58,16 +63,36 @@
     ├── README.md                  // 英語說明檔案
     └── WatchDog.sh                // 自啟動腳本
 
-# 兵種說明
+## 與stm32的通訊協議
+Mini PC 傳送:
 
-## 超級對抗賽
-### 1(英雄), 2(工程), 3(步兵), 4(步兵), 5(前哨戰), 6(基地), 7(哨兵)
+| Byte0 | Byte1    | Byte2 | Byte3 | Byte4 | Byte5 | Byte6 | Byte7 |
+|-------|----------|----------------|-------------| -------------|---------------|-----------|-------|
+| 0x16 | 是否辨識到裝甲板 | yaw軸角度標誌位元 | yaw角度資料位元 | pitch軸角度標誌位元 | yaw角度資料位元 | CRC校驗位元 | 0xFE |
 
-## 聯盟賽
-### 1(英雄), 3(步兵), 4(步兵), 6(基地), 7(哨兵)
+Mini PC 接收:
 
-# v2ray 自啟動腳本
-### $sudo systemctl start v2raya.service
+| Byte0 | Byte1 | Byte2 | Byte3 |
+|------|-------|-------|---------|
+| 是否開啟卡爾曼 | 裝甲板選擇 | 裝甲板顏色 | 0x03 |
 
-# 打開串口腳本
-### $sudo chmod 777 /dev/ttyUSB0
+## 圖表視窗
+運動偵測處理點擊事件
+
+| 滑鼠左鍵 | 滑鼠中鍵 | 滑鼠右鍵 |
+|------|--------|--------|
+| 標定點 | 繼續繪製圖表 | 暫停繪製圖表 |
+
+## 兵種說明
+
+### 超級對抗賽
+1(英雄), 2(工程), 3(步兵), 4(步兵), 5(前哨戰), 6(基地), 7(哨兵)
+
+### 聯盟賽
+1(英雄), 3(步兵), 4(步兵), 6(基地), 7(哨兵)
+
+## v2ray 自啟動腳本
+$sudo systemctl start v2raya.service
+
+## 打開串口腳本
+$sudo chmod 777 /dev/ttyUSB0

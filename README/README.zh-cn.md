@@ -1,5 +1,5 @@
 # NOTOS_RM_AutoAim
-#### 本项目为广州南方学院南風战队2024年赛季视觉功能完整代码
+本项目为广州南方学院南風战队2024年赛季视觉功能完整代码
 
 ---
 [![切换简体中文](https://img.shields.io/badge/切换语言-简体中文-blue)](https://github.com/lizuju/NOTOS_RM_AutoAim/blob/main/README/README.zh-cn.md)
@@ -7,9 +7,9 @@
 [![Switch to English](https://img.shields.io/badge/Switch-English-blue)](https://github.com/lizuju/NOTOS_RM_AutoAim/blob/main/README.md)
 ---
 
-# 仓库说明
+## 仓库说明
+仓库目录
 
-## 仓库目录
     .
     ├── AngleSolver                // 角度解算器库，包含角度解算器类
     │ ├── AngleSolver.cpp          // 角度解算文件
@@ -34,6 +34,11 @@
     │ ├── 123svm.xml               // 数位分类器
     │ ├── camera_params.xml        // 相机配置文件
     │ └── General.h                // 通用头文件
+    ├── GraphWindow                // 图表窗口
+    │ ├── MotionDetection.cpp      // 运动侦测文件
+    │ ├── MotionDetection.h        // 运动侦测头文件
+    │ ├── qcustomplot.cpp          // qt绘图配置文件
+    │ └── qcustomplot.h            // qt绘图配置头文件
     ├── MindVision                 // 相机档案
     │ ├── head                     // 相机头文件
     │ │ ├── CameraApi.h            // 相机API文件
@@ -58,16 +63,36 @@
     ├── README.md                  // 英语说明档案
     └── WatchDog.sh                // 自启动脚本
 
-# 兵种说明
+## 与stm32的通信协议
+Mini PC 发送:
 
-## 超级对抗赛
-### 1(英雄), 2(工程), 3(步兵), 4(步兵), 5(前哨战), 6(基地), 7(哨兵)
+| Byte0 | Byte1    | Byte2          | Byte3       | Byte4       | Byte5         | Byte6     | Byte7 |
+|-------|----------|----------------|-------------|-------------|---------------|-----------|-------|
+| 0x16  | 是否识别到装甲板 | yaw轴角度标志位 | yaw角度数据位 | pitch轴角度标志位 | yaw角度数据位 | CRC校验位 | 0xFE  |
 
-## 联盟赛
-### 1(英雄), 3(步兵), 4(步兵), 6(基地), 7(哨兵)
+Mini PC 接收:
 
-# v2ray 自启动脚本
-### $sudo systemctl start v2raya.service
+| Byte0 | Byte1 | Byte2 | Byte3   |
+|------|-------|-------|---------|
+| 是否开启卡尔曼 | 装甲板选择 | 装甲板颜色 | 0x03 |
 
-# 打开串口脚本
-### $sudo chmod 777 /dev/ttyUSB0
+## 图表窗口
+运动检测处理点击事件
+
+| 鼠标左键 | 鼠标中键   | 鼠标右键   |
+|------|--------|--------|
+| 标定点  | 继续绘制图表 | 暂停绘制图表 |
+
+## 兵种说明
+
+### 超级对抗赛
+1(英雄), 2(工程), 3(步兵), 4(步兵), 5(前哨战), 6(基地), 7(哨兵)
+
+### 联盟赛
+1(英雄), 3(步兵), 4(步兵), 6(基地), 7(哨兵)
+
+## v2ray 自启动脚本
+$sudo systemctl start v2raya.service
+
+## 打开串口脚本
+$sudo chmod 777 /dev/ttyUSB0

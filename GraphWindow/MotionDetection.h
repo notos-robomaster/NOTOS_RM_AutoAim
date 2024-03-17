@@ -36,9 +36,9 @@ private slots:
     void on_ptn_clear_clicked();
 
     /**
-     * @brief handle click events
-     *  mouse left button is calibration point
-     *  mouse middle button is continue plot
+     * @brief handle click events,
+     *  mouse left button is calibration point,
+     *  mouse middle button is continue plot,
      *  mouse right button is interrupt plot
      * @param event
      */

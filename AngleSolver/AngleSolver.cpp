@@ -22,6 +22,7 @@ int AngleSolver::setCameraParam(const char *filePath, int camId)    // todo camI
         return -1;
     }
 
+    fsRead["X_DISTANCE_BETWEEN_GUN_AND_CAM"] >> GUN_CAM_DISTANCE_X;
     fsRead["Y_DISTANCE_BETWEEN_GUN_AND_CAM"] >> GUN_CAM_DISTANCE_Y;
 
     Mat camera_matrix;
@@ -97,7 +98,9 @@ void AngleSolver::solveAngles()
             break;
     }
 
-    GUN_CAM_DISTANCE_Y = 0;
+    GUN_CAM_DISTANCE_X = 0;
+    GUN_CAM_DISTANCE_Y = -110;
+    tVec.at<double>(0, 0) -= GUN_CAM_DISTANCE_X;
     tVec.at<double>(1, 0) -= GUN_CAM_DISTANCE_Y;
     double x_pos = tVec.at<double>(0, 0);
     double y_pos = tVec.at<double>(1, 0);
@@ -164,7 +167,7 @@ void AngleSolver::compensateOffset()
 void AngleSolver::compensateGravity()
 {
     float compensateGravity_pitch_tan = tan(x_pitch / 180 * CV_PI) +
-            (0.5 * 9.8 * (distance / BULLET_SPEED) * (distance / BULLET_SPEED) / cos(x_pitch / 180 * CV_PI));
+            (0.5 * 9.788 * (distance / BULLET_SPEED) * (distance / BULLET_SPEED) / cos(x_pitch / 180 * CV_PI));
     x_pitch = atan(compensateGravity_pitch_tan) * 180 / CV_PI;
 }
 

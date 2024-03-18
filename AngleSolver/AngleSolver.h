@@ -104,8 +104,10 @@ private:
     // speed of bullet (compensation for gravity and air fru)
     double BULLET_SPEED;
 
-    // distance between camera and barrel in y-axis (positive when camera is under barrel) barrel_y = camera_y + barrel_camera_y
+    // distance between camera and barrel in y-axis
     double GUN_CAM_DISTANCE_Y;
+    // distance between camera and barrel in x-axis
+    double GUN_CAM_DISTANCE_X;
 
     vector<Point2f> targetContour;
     Point2f targetCenter;

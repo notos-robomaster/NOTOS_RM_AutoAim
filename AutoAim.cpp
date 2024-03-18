@@ -1,7 +1,7 @@
 #include "Armor/Armor.h"
 #include "General/General.h"
 #include "AngleSolver/AngleSolver.h"
-#include "Serial/serialport.cpp"
+#include "Serial/serialport.h"
 #include "Filter/Kalman.h"
 #include "GraphWindow/MotionDetection.h"
 
@@ -24,6 +24,9 @@ unsigned char readData[3];
 bool bRun = true;
 bool firstTime = true;
 
+char ttyUSB_path[] = "/dev/ttyUSB0";    //设置串口名称
+SerialPort port(ttyUSB_path);   //创建串口类对象
+
 void autoaimRun()
 {
     detector.loadSVM("../General/123svm.xml");  // todo SVM update
@@ -33,8 +36,6 @@ void autoaimRun()
     angleSolver.setArmorSize(BIG_ARMOR, 230, 127);
     angleSolver.setBulletSpeed(15000);
 
-    char ttyUSB_path[] = "/dev/ttyUSB0";    //设置串口名称
-    SerialPort port(ttyUSB_path);   //创建串口类对象
     port.initSerialPort();  //串口初始化
 
     imageInit();

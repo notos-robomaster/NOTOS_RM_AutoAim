@@ -16,7 +16,8 @@
 #include <errno.h>
 #include <sys/ioctl.h>
 #include <iostream>
-#include "CRC_Check.cpp"
+#include <cmath>
+#include "CRC_Check.h"
 using namespace std;
 
 #define TRUE 1
@@ -41,9 +42,9 @@ private:
 	int set_Bit();
 public:
     SerialPort();
-    SerialPort(char *);
+    SerialPort(char *portpath);
     bool initSerialPort();//串口初始化
-	void TransformData_Part(bool part, int Data_1, int Data_2);
+	void TransformData_Part(bool part, double Data_1, double Data_2);
     void TransformData_Global(int Data_1, int Data_2, int Data_3, int Data_4, int Data_5, int Data_6);
 	void send();//piuuuu～
     /**

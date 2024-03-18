@@ -37,6 +37,8 @@ add_executable(NOTOS_RM_AutoAim main.cpp
         MindVision/head/CameraStatus.h
         AngleSolver/AngleSolver.cpp
         AngleSolver/AngleSolver.h
+        Serial/serialport.cpp
+        Serial/serialport.h
         Calibration/Calibration.cpp
         Filter/Kalman.cpp
         Filter/Kalman.h

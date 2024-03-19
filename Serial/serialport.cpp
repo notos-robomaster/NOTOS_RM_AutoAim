@@ -1,10 +1,5 @@
 #include "serialport.h"
 
-int length = 9;
-int rLength = 4;
-// int *ptr = &part;
-int *len = &length;
-
 /**
  *@brief   初始化数据
  *@param  fd       类型  int  打开的串口文件句柄
@@ -38,6 +33,7 @@ SerialPort::SerialPort(char *portpath) // 自定义打开设备
  */
 bool SerialPort::initSerialPort()
 {
+    serialFlagReceived = false;
     if (fd == -1)
     {
         perror(UART_DEVICE);
@@ -53,7 +49,28 @@ bool SerialPort::initSerialPort()
         exit(0);
     }
     printf("Open successed\n");
+
+    // install serial interrupt handler
+    signal(SIGIO, serialInterruptHandler);
+    fcntl(fd, F_SETOWN, getpid());
+    fcntl(fd, F_SETFL, FASYNC);
+
     return true;
+}
+
+void SerialPort::serialInterruptHandler(int signal)
+{
+    serialFlagReceived = true;
+}
+
+bool SerialPort::isSerialFlagReceived()
+{
+    return serialFlagReceived;
+}
+
+void SerialPort::resetSerialFlag()
+{
+    serialFlagReceived = false;
 }
 
 /**
@@ -222,32 +239,23 @@ int SerialPort::set_Bit()
     return (TRUE);
 }
 
-void SerialPort::send()
+void SerialPort::send(int length)
 {
     write(fd, Tdata, length);
 }
 
 #ifdef WAIT_RECEIVE
-void SerialPort::receive(unsigned char* data)
+void SerialPort::receive(unsigned char* data, int rLength)
 {
     read(fd, Rdata, rLength);
     if (Rdata[3] == 0x03)
     {
         memcpy(data, Rdata, rLength);
-//        cout << "test_test_test1" << endl;
-//        for (int i = 0; i < sizeof(Rdata)/sizeof(Rdata[0]); i++)
-//        {
-//            cout << (int)Rdata[i] << endl;
-//        }
-//        cout << "test_test_test2" << endl;
-//        for (int i = 0; i < sizeof(data)/sizeof(data[0]); i++)
-//        {
-//            cout << (int)data[i] << endl;
-//        }
-//        cout << "test_test_test3" << endl;
     } else
     {
+#ifdef TEXT_ISRECEIVE
         fmt::print(fmt::fg(fmt::color::dark_red), "Waiting for the serial port to receive data!\n");
+#endif // TEXT_ISRECEIVE
     }
 }
 #endif // WAIT_RECEIVE
@@ -264,7 +272,6 @@ void SerialPort::TransformData_Global(int Data_1, int Data_2, int Data_3, int Da
     Tdata[7] = Data_6;
     Append_CRC8_Check_Sum(Tdata, 9);
     Tdata[9] = 0xFE;
-    *len = 10;
 }
 
 void SerialPort::TransformData_Part(bool part, double Data_1, double Data_2) // 打包 局部
@@ -284,8 +291,8 @@ void SerialPort::TransformData_Part(bool part, double Data_1, double Data_2) // 
     }
     int DataInt_1 = Data_1;
     int DataInt_2 = Data_2;
-    int DataDecimal_1 = static_cast<int>(Data_1 * 100) % 100;
-    int DataDecimal_2 = static_cast<int>(Data_2 * 100) % 100;
+    int DataDecimal_1 = static_cast<int>(Data_1 * 10) % 10;
+    int DataDecimal_2 = static_cast<int>(Data_2 * 10) % 10;
 
     Tdata[0] = 0x16;
     Tdata[1] = part;
@@ -299,7 +306,6 @@ void SerialPort::TransformData_Part(bool part, double Data_1, double Data_2) // 
     Tdata[7] = DataDecimal_2;
 //    Append_CRC8_Check_Sum(Tdata, 7);
     Tdata[8] = 0xFE;
-    *len = 9;
 }
 
 // 关闭通讯协议接口

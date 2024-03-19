@@ -20,12 +20,19 @@ Color ENEMYCOLOR = RED;
 
 int targetNum = 3;
 unsigned char readData[3];
+int length = 9;
+int rLength = 4;
 
 bool bRun = true;
 bool firstTime = true;
 
 char ttyUSB_path[] = "/dev/ttyUSB0";    //设置串口名称
 SerialPort port(ttyUSB_path);   //创建串口类对象
+
+void SerialPort::performOperation()
+{
+    cout << "hello performOperation" << endl;
+}
 
 void autoaimRun()
 {
@@ -46,11 +53,16 @@ void autoaimRun()
 
         // Serial
 #ifdef WAIT_RECEIVE
-        port.receive(readData);
+        port.receive(readData, rLength);
 //        for (int i = 0; i < sizeof(readData)/sizeof(readData[0]); i++)
 //        {
 //            cout << (int)readData[i] << endl;
 //        }
+        if (port.isSerialFlagReceived())
+        {
+            port.performOperation();
+            port.resetSerialFlag();
+        }
 
         // Wait for the referee system to read the color
         if (firstTime)
@@ -83,7 +95,7 @@ void autoaimRun()
 
         // Serial
         port.TransformData_Part(detector.isFoundArmor(), yaw, pitch);
-        port.send();
+        port.send(length);
 
 #ifdef WAIT_RECEIVE
         if (readData[3] == 3)

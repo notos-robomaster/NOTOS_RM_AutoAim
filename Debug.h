@@ -31,7 +31,7 @@
 //#define SHOW_SRCBINARY  // show binary
 //#define SHOW_LIGHTS // show light
 #define SHOW_ARMORS // show armors
-#define SHOW_ARMORNUM   // show armor number
+//#define SHOW_ARMORNUM   // show armor number
 //#define TEXT_LIGHTS // light info
 //#define TEXT_ARMORS // armors info
 //#define TEXT_SCORES // impact info
@@ -43,9 +43,11 @@
 //#define TEXT_COMPENSATION   // compensation info
 //#define TEXT_CAMERA_PARAMS  // camera params info
 
-#define SHOW_PREDICT    // show predict info
+//#define SHOW_PREDICT    // show predict info
 
 #define TEXT_FPS    // fps info
 
-#define SHOW_PLOT // show motion detection in plot
+//#define SHOW_PLOT // show motion detection in plot
+
+#define TEXT_ISRECEIVE  // whether to receive serial port
 //===========================================================================//

@@ -39,6 +39,8 @@ add_executable(NOTOS_RM_AutoAim main.cpp
         AngleSolver/AngleSolver.h
         Serial/serialport.cpp
         Serial/serialport.h
+        Serial/CRC_Check.cpp
+        Serial/CRC_Check.h
         Calibration/Calibration.cpp
         Filter/Kalman.cpp
         Filter/Kalman.h

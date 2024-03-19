@@ -1,6 +1,9 @@
 #include "CRC_Check.h"
+
 //crc8 generator polynomial:G(x)=x8+x5+x4+1
+
 const unsigned char CRC8_INIT = 0xff;
+
 const unsigned char CRC8_TAB[256] =
 {
 	0x00, 0x5e, 0xbc, 0xe2, 0x61, 0x3f, 0xdd, 0x83, 0xc2, 0x9c, 0x7e, 0x20, 0xa3, 0xfd, 0x1f, 0x41,
@@ -20,6 +23,7 @@ const unsigned char CRC8_TAB[256] =
 	0xe9, 0xb7, 0x55, 0x0b, 0x88, 0xd6, 0x34, 0x6a, 0x2b, 0x75, 0x97, 0xc9, 0x4a, 0x14, 0xf6, 0xa8,
 	0x74, 0x2a, 0xc8, 0x96, 0x15, 0x4b, 0xa9, 0xf7, 0xb6, 0xe8, 0x0a, 0x54, 0xd7, 0x89, 0x6b, 0x35,
 };
+
 unsigned char Get_CRC8_Check_Sum(unsigned char *pchMessage, unsigned int dwLength, unsigned char ucCRC8)
 {
 	unsigned char ucIndex;
@@ -32,6 +36,7 @@ unsigned char Get_CRC8_Check_Sum(unsigned char *pchMessage, unsigned int dwLengt
 
 	return (ucCRC8);
 }
+
 /*
 ** Descriptions: CRC8 Verify function
 ** Input: Data to Verify,Stream length = Data + checksum
@@ -46,6 +51,7 @@ unsigned int Verify_CRC8_Check_Sum(unsigned char *pchMessage, unsigned int dwLen
 	ucExpected = Get_CRC8_Check_Sum(pchMessage, dwLength - 1, CRC8_INIT);
 	return (ucExpected == pchMessage[dwLength - 1]);
 }
+
 /*
 ** Descriptions: append CRC8 to the end of data
 ** Input: Data to CRC and append,Stream length = Data + checksum
@@ -60,7 +66,9 @@ void Append_CRC8_Check_Sum(unsigned char *pchMessage, unsigned int dwLength)
 	ucCRC = Get_CRC8_Check_Sum((unsigned char *)pchMessage, dwLength - 1, CRC8_INIT);
 	pchMessage[dwLength - 1] = ucCRC;
 }
+
 uint16_t CRC_INIT = 0xffff;
+
 const uint16_t wCRC_Table[256] =
 {
 	0x0000, 0x1189, 0x2312, 0x329b, 0x4624, 0x57ad, 0x6536, 0x74bf,
@@ -96,6 +104,7 @@ const uint16_t wCRC_Table[256] =
 	0xf78f, 0xe606, 0xd49d, 0xc514, 0xb1ab, 0xa022, 0x92b9, 0x8330,
 	0x7bc7, 0x6a4e, 0x58d5, 0x495c, 0x3de3, 0x2c6a, 0x1ef1, 0x0f78
 };
+
 /*
 ** Descriptions: CRC16 checksum function
 ** Input: Data to check,Stream length, initialized checksum
@@ -118,6 +127,7 @@ uint16_t Get_CRC16_Check_Sum(uint8_t *pchMessage, uint32_t dwLength, uint16_t wC
 
 	return wCRC;
 }
+
 /*
 ** Descriptions: CRC16 Verify function
 ** Input: Data to Verify,Stream length = Data + checksum
@@ -135,6 +145,7 @@ uint32_t Verify_CRC16_Check_Sum(uint8_t *pchMessage, uint32_t dwLength)
 	wExpected = Get_CRC16_Check_Sum(pchMessage, dwLength - 2, CRC_INIT);
 	return ((wExpected & 0xff) == pchMessage[dwLength - 2] && ((wExpected >> 8) & 0xff) == pchMessage[dwLength - 1]);
 }
+
 /*
 ** Descriptions: append CRC16 to the end of data
 ** Input: Data to CRC and append,Stream length = Data + checksum

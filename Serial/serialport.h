@@ -36,7 +36,6 @@ using namespace std;
 class SerialPort
 {
 private:
-    static void serialInterruptHandler(int signal);
 
     int fd; //串口号
     int speed, databits, stopbits, parity;
@@ -45,9 +44,6 @@ private:
     unsigned char Rdata[3];
 	void set_Brate();
 	int set_Bit();
-
-    static volatile bool serialFlagReceived;
-
 public:
     SerialPort();
     SerialPort(char *portpath);
@@ -64,12 +60,7 @@ public:
      */
     void receive(unsigned char* data, int rLength);//ahhhhh～
 
-    void performOperation();
-
 	void closePort();//关串口
-
-    static bool isSerialFlagReceived();
-    static void resetSerialFlag();
 };
 
 #endif //SERIALPORT_H

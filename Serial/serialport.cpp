@@ -33,7 +33,6 @@ SerialPort::SerialPort(char *portpath) // 自定义打开设备
  */
 bool SerialPort::initSerialPort()
 {
-    serialFlagReceived = false;
     if (fd == -1)
     {
         perror(UART_DEVICE);
@@ -50,27 +49,7 @@ bool SerialPort::initSerialPort()
     }
     printf("Open successed\n");
 
-    // install serial interrupt handler
-    signal(SIGIO, serialInterruptHandler);
-    fcntl(fd, F_SETOWN, getpid());
-    fcntl(fd, F_SETFL, FASYNC);
-
     return true;
-}
-
-void SerialPort::serialInterruptHandler(int signal)
-{
-    serialFlagReceived = true;
-}
-
-bool SerialPort::isSerialFlagReceived()
-{
-    return serialFlagReceived;
-}
-
-void SerialPort::resetSerialFlag()
-{
-    serialFlagReceived = false;
 }
 
 /**

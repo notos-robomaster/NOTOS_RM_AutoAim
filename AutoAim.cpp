@@ -29,11 +29,6 @@ bool firstTime = true;
 char ttyUSB_path[] = "/dev/ttyUSB0";    //设置串口名称
 SerialPort port(ttyUSB_path);   //创建串口类对象
 
-void SerialPort::performOperation()
-{
-    cout << "hello performOperation" << endl;
-}
-
 void autoaimRun()
 {
     detector.loadSVM("../General/123svm.xml");  // todo SVM update
@@ -58,11 +53,6 @@ void autoaimRun()
 //        {
 //            cout << (int)readData[i] << endl;
 //        }
-        if (port.isSerialFlagReceived())
-        {
-            port.performOperation();
-            port.resetSerialFlag();
-        }
 
         // Wait for the referee system to read the color
         if (firstTime)

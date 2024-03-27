@@ -1,5 +1,9 @@
 #include "Armor.h"
 
+/**
+ * @brief delete the reflection of the ground light
+ * @param lights
+ */
 void eraseErrorRepeatLight(vector<LightBar> &lights);
 
 /**
@@ -46,9 +50,10 @@ void eraseErrorRepeatLight(vector<LightBar> &lights)
 {
     int length = lights.size();
     vector<LightBar>::iterator it = lights.begin();
-    for (size_t i = 0; i < length; i++)
-        for (size_t j = i + 1; j < length; i++)
-            if ((abs(lights[i].center.x) - abs(lights[j].center.x)) < 180)
-                if ((lights[i].center.y - lights[j].center.y) > 450)
-                    it = lights.erase(it + j);
+    for (size_t i = 1; i < length; i++)
+        for (size_t j = i + 2; j < length; j+=2)
+            if (abs(lights[i].center.x - lights[j].center.x) < 100)
+                if(abs(lights[i].center.y - lights[j].center.y) < 450)
+                    lights[i].center.y > lights[j].center.y ?
+                    it = lights.erase(it + i) : it = lights.erase(it + j);
 }

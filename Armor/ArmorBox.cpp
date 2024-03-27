@@ -1,6 +1,21 @@
 #include "Armor.h"
 
+/**
+ * @brief calculate the cross point of cross equation
+ * @param bl
+ * @param tl
+ * @param tr
+ * @param br
+ * @return cross point
+ */
 const Point2f crossPoint(const Point2f &bl, const Point2f &tl, const Point2f &tr, const Point2f &br);
+
+/**
+ * @brief using the 4points of lightBar to construct the armorVertices
+ * @param l_light
+ * @param r_light
+ * @param armor
+ */
 void setArmorVertices(const LightBar &l_light, const LightBar &r_light, ArmorBox &armor);
 
 ArmorBox::ArmorBox()
@@ -86,14 +101,6 @@ bool ArmorBox::isSuitableArmor() const
         this->getLengthRation()   < armorParam.max_lengthDiff_ratio;
 }
 
-/**
- * @brief calculate the cross point of cross equation
- * @param bl
- * @param tl
- * @param tr
- * @param br
- * @return cross point
- */
 const Point2f crossPoint(const Point2f &bl, const Point2f &tl, const Point2f &tr, const Point2f &br)
 {
     float a1 = tr.y - bl.y;
@@ -116,12 +123,6 @@ const Point2f crossPoint(const Point2f &bl, const Point2f &tl, const Point2f &tr
     }
 }
 
-/**
- * @brief using the 4points of lightBar to construct the armorVertices
- * @param l_light
- * @param r_light
- * @param armor
- */
 void setArmorVertices(const LightBar &l_light, const LightBar &r_light, ArmorBox &armor)
 {
     cv::Size exLSize(int(l_light.lightRect.size.width), int(l_light.lightRect.size.height * 2));    // todo float

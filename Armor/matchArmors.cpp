@@ -1,6 +1,19 @@
 #include "Armor.h"
 
+/**
+ * @brief delete error armor which is caused by the single lightbar
+ * @param armors
+ */
 void eraseErrorRepeatArmor(vector<ArmorBox> &armors);
+
+/**
+ * @brief get the distance between two points
+ * @param a_armor
+ * @param b_armor
+ * @param lastArmor
+ * @param targetNum
+ * @return two points distance
+ */
 bool armorCompare(const ArmorBox &a_armor, const ArmorBox &b_armor, const ArmorBox &lastArmor, const int &targetNum);
 
 void ArmorDetector::matchArmors()
@@ -47,10 +60,6 @@ void ArmorDetector::setTargetArmor()
     lastArmor = targetArmor;
 }
 
-/**
- * @brief delete error armor which is caused by the single lightbar
- * @param armors
- */
 void eraseErrorRepeatArmor(vector<ArmorBox> &armors)
 {
     int length = armors.size(); // todo: size_t
@@ -71,12 +80,6 @@ void eraseErrorRepeatArmor(vector<ArmorBox> &armors)
     }
 }
 
-/**
- * @brief get the distance between two points
- * @param a
- * @param b
- * @return two points distance
- */
 float getPointsDistance(const Point2f &a, const Point2f &b)
 {
     float delta_x = a.x - b.x;

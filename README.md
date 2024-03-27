@@ -66,9 +66,9 @@ Repository directory
 ## Communication protocol with stm32
 Mini PC sent:
 
-| Byte0 | Byte1 | Byte2          | Byte3           | Byte4               | Byte5             | Byte6     | Byte7                 | Byte8 |
-|-------|-------------|----------------|-----------------|---------------------|-------------------|-----------|-----------------------|-------|
-| 0x16  | IsHaveArmor | YawAngleSymbol | IntYawAngleData | DecimalYawAngleData | PitchAngleSymbol | IntPitchAngleData | DecimalPitchAngleData | 0xFE  |
+| Byte0 | Byte1 | Byte2          | Byte3           | Byte4               | Byte5             | Byte6     | Byte7                 | Byte8   | Byte9 |
+|-------|-------------|----------------|-----------------|---------------------|-------------------|-----------|-----------------------|---------|------|
+| 0x16  | IsHaveArmor | YawAngleSymbol | IntYawAngleData | DecimalYawAngleData | PitchAngleSymbol | IntPitchAngleData | DecimalPitchAngleData | autoaim | 0xFE |
 
 Mini PC receive:
 

@@ -65,7 +65,7 @@ void eraseErrorRepeatArmor(vector<ArmorBox> &armors)
                 armors[i].r_index == armors[j].l_index)
             {
                 armors[i].getDeviationAngle() > armors[j].getDeviationAngle() ?
-                armors.erase(it + i) : armors.erase(it + j);
+                it = armors.erase(it + i) : it = armors.erase(it + j);
             }
         }
     }

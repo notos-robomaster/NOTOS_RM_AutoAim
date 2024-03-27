@@ -1,5 +1,7 @@
 #include "Armor.h"
 
+void eraseErrorRepeatLight(vector<LightBar> &lights);
+
 /**
 * @brief find all the possible lights of armor
 */
@@ -21,6 +23,8 @@ void ArmorDetector::findLights()
 
         if (abs(light.angle) > armorParam.max_angle) continue;
 
+        eraseErrorRepeatLight(lights);
+
         lights.emplace_back(light);
     }
     if (lights.size() < 2)
@@ -36,4 +40,15 @@ void ArmorDetector::findLights()
     });
     state = LIGHTS_FOUND;
     return;
+}
+
+void eraseErrorRepeatLight(vector<LightBar> &lights)
+{
+    int length = lights.size();
+    vector<LightBar>::iterator it = lights.begin();
+    for (size_t i = 0; i < length; i++)
+        for (size_t j = i + 1; j < length; i++)
+            if ((abs(lights[i].center.x) - abs(lights[j].center.x)) < 180)
+                if ((lights[i].center.y - lights[j].center.y) > 450)
+                    it = lights.erase(it + j);
 }

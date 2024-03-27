@@ -20,7 +20,7 @@ Color ENEMYCOLOR = RED;
 
 int targetNum = 3;
 unsigned char readData[3];
-int length = 9;
+int length = 10;
 int rLength = 4;
 
 bool bRun = true;

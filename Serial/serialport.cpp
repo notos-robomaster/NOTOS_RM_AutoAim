@@ -273,18 +273,23 @@ void SerialPort::TransformData_Part(bool part, double Data_1, double Data_2) // 
     int DataDecimal_1 = static_cast<int>(Data_1 * 10) % 10;
     int DataDecimal_2 = static_cast<int>(Data_2 * 10) % 10;
 
+    int autoaim = 0;
+    if (Data_1<3 && Data_2<3)
+    {
+        autoaim = 1;
+    }
+
     Tdata[0] = 0x16;
-    Tdata[1] = part;
-    Tdata[2] = part_1; // yaw轴判断正负
-//    memcpy(Tdata+3, &Data_1, sizeof(int));  // yaw轴角度1
-    Tdata[3] = DataInt_1; // yaw轴角度2
-    Tdata[4] = DataDecimal_1;
-    Tdata[5] = part_2; // pitch轴判断正负
-//    memcpy(Tdata+8, &Data_2, sizeof(int));  // pitch轴角度1
-    Tdata[6] = DataInt_2; // pitch轴角度2
-    Tdata[7] = DataDecimal_2;
+    Tdata[1] = part;    // 是否識別到裝甲板
+    Tdata[2] = part_1;  // yaw 標誌位
+    Tdata[3] = DataInt_1;   // yaw 整數
+    Tdata[4] = DataDecimal_1;   // yaw 小數
+    Tdata[5] = part_2;  // pitch 標誌位
+    Tdata[6] = DataInt_2;   // pitch 整數
+    Tdata[7] = DataDecimal_2;   // pitch 小數
+    Tdata[8] = autoaim; // 是否發彈
 //    Append_CRC8_Check_Sum(Tdata, 7);
-    Tdata[8] = 0xFE;
+    Tdata[9] = 0xFE;
 }
 
 // 关闭通讯协议接口

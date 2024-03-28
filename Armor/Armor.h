@@ -20,7 +20,7 @@ struct ArmorParam
     int bright_threshold;
 
     int max_light_x_distance;   // reflective light strip in X distance
-    int max_light_y_distance;   // reflective light strip in Y distance
+    int min_light_y_distance;   // reflective light strip in Y distance
 
     float min_area; // light bar
     float max_angle; // light bar
@@ -38,8 +38,8 @@ struct ArmorParam
         color_threshold = 100 - 20;
         bright_threshold = 60;
 
-        max_light_x_distance = 100;
-        max_light_y_distance = 450;
+        max_light_x_distance = 70;
+        min_light_y_distance = 45;
 
         min_area = 50;
         max_angle = 45;

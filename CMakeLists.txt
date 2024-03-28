@@ -50,7 +50,7 @@ add_executable(NOTOS_RM_AutoAim main.cpp
         GraphWindow/qcustomplot.h
 )
 
-target_link_libraries(NOTOS_RM_AutoAim /home/cgnb/MindVision/lib/arm64/libMVSDK.so)
+target_link_libraries(NOTOS_RM_AutoAim /home/oconnor/MVSDK/lib/x64/libMVSDK.so)
 target_link_libraries(NOTOS_RM_AutoAim ${OpenCV_LIBRARIES} fmt::fmt pthread)
 target_link_libraries(NOTOS_RM_AutoAim
         Qt5::Core

@@ -15,8 +15,8 @@ QApplication a(argc, argv);
 MotionDetect motionDetect;
 #endif // SHOW_PLOT
 
-//Color ENEMYCOLOR = BLUE;
-Color ENEMYCOLOR = RED;
+Color ENEMYCOLOR = BLUE;
+//Color ENEMYCOLOR = RED;
 
 int targetNum = 3;
 unsigned char readData[3];
@@ -36,7 +36,7 @@ void autoaimRun()
     angleSolver.setCameraParam("../General/camera_params.xml", 2);
     angleSolver.setArmorSize(SMALL_ARMOR, 135, 125);
     angleSolver.setArmorSize(BIG_ARMOR, 230, 127);
-    angleSolver.setBulletSpeed(15000);
+    angleSolver.setBulletSpeed(70650);
 
     port.initSerialPort();  //串口初始化
 
@@ -86,7 +86,6 @@ void autoaimRun()
         // Serial
         port.TransformData_Part(detector.isFoundArmor(), yaw, pitch);
         port.send(length);
-
 #ifdef WAIT_RECEIVE
         if (readData[3] == 3)
         {

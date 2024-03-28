@@ -29,14 +29,14 @@
 //- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -//
 //#define SHOW_SRCIMG // show src
 //#define SHOW_SRCBINARY  // show binary
-//#define SHOW_LIGHTS // show light
+#define SHOW_LIGHTS // show light
 #define SHOW_ARMORS // show armors
 //#define SHOW_ARMORNUM   // show armor number
 //#define TEXT_LIGHTS // light info
 //#define TEXT_ARMORS // armors info
 //#define TEXT_SCORES // impact info
 
-#define SHOW_ANGLE // show angle result
+//#define SHOW_ANGLE // show angle result
 //#define TEXT_TVEC   // tVec info
 //#define TEXT_P4P // P4P solver info
 //#define TEXT_PINHOLE    // PinHole solver info

@@ -50,10 +50,14 @@ void eraseErrorRepeatLight(vector<LightBar> &lights)
 {
     int length = lights.size();
     vector<LightBar>::iterator it = lights.begin();
-    for (size_t i = 1; i < length; i++)
-        for (size_t j = i + 2; j < length; j+=2)
+    for (size_t i = 0; i < length; i++)
+        for (size_t j = i + 1; j < length; j+=2)
             if (abs(lights[i].center.x - lights[j].center.x) < armorParam.max_light_x_distance)
-                if(abs(lights[i].center.y - lights[j].center.y) < armorParam.max_light_y_distance)
+            {
+                if(abs(lights[i].center.y - lights[j].center.y) > armorParam.min_light_y_distance)
+                {
                     lights[i].center.y > lights[j].center.y ?
-                    it = lights.erase(it + i) : it = lights.erase(it + j);
+                            it = lights.erase(it + i) : it = lights.erase(it + j);
+                }
+            }
 }

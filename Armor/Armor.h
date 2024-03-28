@@ -20,6 +20,7 @@ struct ArmorParam
     int bright_threshold;
 
     int max_light_y_variance;   // light average variance in Y distance
+    int max_light_length;    // max light length
 
     float min_area; // light bar
     float max_angle; // light bar
@@ -37,7 +38,8 @@ struct ArmorParam
         color_threshold = 100 - 20;
         bright_threshold = 60;
 
-        max_light_y_variance = 500;
+        max_light_y_variance = 100;
+        max_light_length = 400;
 
         min_area = 50;
         max_angle = 45;

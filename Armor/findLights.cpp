@@ -27,7 +27,9 @@ void ArmorDetector::findLights()
 
         if (abs(light.angle) > armorParam.max_angle) continue;
 
+#ifdef REFLECTION_LIGHT
         eraseErrorRepeatLight(lights);
+#endif // REFLECTION_LIGHT
 
         lights.emplace_back(light);
     }
@@ -48,16 +50,35 @@ void ArmorDetector::findLights()
 
 void eraseErrorRepeatLight(vector<LightBar> &lights)
 {
-    int length = lights.size();
-    vector<LightBar>::iterator it = lights.begin();
-    for (size_t i = 0; i < length; i++)
-        for (size_t j = i + 1; j < length; j+=2)
-            if (abs(lights[i].center.x - lights[j].center.x) < armorParam.max_light_x_distance)
+    if (lights.empty()) return;
+
+    int sum_y = 0;
+    for (const auto &light : lights)
+    {
+        sum_y += light.center.y;
+    }
+    int mean = sum_y / lights.size();
+
+    int variance = 0;
+    for (const auto &light : lights)
+    {
+        int deviation = light.center.y - mean;
+        variance += deviation * deviation;
+    }
+    variance /= lights.size();
+
+    if (variance > armorParam.max_light_y_variance)
+    {
+        auto it = lights.begin();
+        while (it != lights.end())
+        {
+            if (it->center.y > mean)
             {
-                if(abs(lights[i].center.y - lights[j].center.y) > armorParam.min_light_y_distance)
-                {
-                    lights[i].center.y > lights[j].center.y ?
-                            it = lights.erase(it + i) : it = lights.erase(it + j);
-                }
+                it = lights.erase(it);
+            } else
+            {
+                ++it;
             }
+        }
+    }
 }

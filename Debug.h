@@ -18,8 +18,6 @@
 #define USING_MINDVISION    // using MindVision
 //#define USING_USB_CAMERA    // using usb camera
 //#define VIDEO_PATH "/home/cgnb/TheNewBegging/testArmor.mp4"    // using video
-
-//#define WAIT_RECEIVE  // wait serial port to receive data
 //===========================================================================//
 
 
@@ -50,4 +48,14 @@
 //#define SHOW_PLOT // show motion detection in plot
 
 //#define TEXT_ISRECEIVE  // whether to receive serial port
+//===========================================================================//
+
+
+
+//===========================================================================//
+//                            Function options
+//- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -//
+//#define WAIT_RECEIVE  // wait serial port to receive data
+//#define KALMAN  // whether to open kalman
+#define REFLECTION_LIGHT    // whether to delete reflection light, only valid for one car
 //===========================================================================//

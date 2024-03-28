@@ -37,7 +37,7 @@ struct ArmorParam
         color_threshold = 100 - 20;
         bright_threshold = 60;
 
-        max_light_y_variance = 30;
+        max_light_y_variance = 500;
 
         min_area = 50;
         max_angle = 45;

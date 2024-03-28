@@ -50,35 +50,40 @@ void ArmorDetector::findLights()
 
 void eraseErrorRepeatLight(vector<LightBar> &lights)
 {
-    if (lights.empty()) return;
-
-    int sum_y = 0;
-    for (const auto &light : lights)
+    if (lights.size() > 4)
     {
-        sum_y += light.center.y;
-    }
-    int mean = sum_y / lights.size();
-
-    int variance = 0;
-    for (const auto &light : lights)
-    {
-        int deviation = light.center.y - mean;
-        variance += deviation * deviation;
-    }
-    variance /= lights.size();
-
-    if (variance > armorParam.max_light_y_variance)
-    {
-        auto it = lights.begin();
-        while (it != lights.end())
+        int sum_y = 0;
+        for (const auto &light : lights)
         {
-            if (it->center.y > mean)
+            sum_y += light.center.y;
+        }
+        int mean = sum_y / lights.size();
+
+        int variance = 0;
+        for (const auto &light : lights)
+        {
+            int deviation = light.center.y - mean;
+            variance += deviation * deviation;
+        }
+        variance /= lights.size();
+
+        if (variance > armorParam.max_light_y_variance)
+        {
+            auto it = lights.begin();
+            while (it != lights.end())
             {
-                it = lights.erase(it);
-            } else
-            {
-                ++it;
+                if (it->center.y > mean)
+                {
+                    it = lights.erase(it);
+                } else
+                {
+                    ++it;
+                }
             }
         }
+    }
+    else
+    {
+        return;
     }
 }

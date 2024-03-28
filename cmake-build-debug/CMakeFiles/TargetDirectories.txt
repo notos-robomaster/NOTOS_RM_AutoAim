@@ -1,4 +1,4 @@
-/Users/giovanni/CLion/NOTOS_RM_AutoAim/cmake-build-debug/CMakeFiles/NOTOS_RM_AutoAim.dir
-/Users/giovanni/CLion/NOTOS_RM_AutoAim/cmake-build-debug/CMakeFiles/edit_cache.dir
-/Users/giovanni/CLion/NOTOS_RM_AutoAim/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/Users/giovanni/CLion/NOTOS_RM_AutoAim/cmake-build-debug/CMakeFiles/NOTOS_RM_AutoAim_autogen.dir
+/home/oconnor/NOTOS_RM_AutoAim/cmake-build-debug/CMakeFiles/NOTOS_RM_AutoAim.dir
+/home/oconnor/NOTOS_RM_AutoAim/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/oconnor/NOTOS_RM_AutoAim/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/oconnor/NOTOS_RM_AutoAim/cmake-build-debug/CMakeFiles/NOTOS_RM_AutoAim_autogen.dir

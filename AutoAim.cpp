@@ -15,8 +15,8 @@ QApplication a(argc, argv);
 MotionDetect motionDetect;
 #endif // SHOW_PLOT
 
-Color ENEMYCOLOR = BLUE;
-//Color ENEMYCOLOR = RED;
+//Color ENEMYCOLOR = BLUE;
+Color ENEMYCOLOR = RED;
 
 int targetNum = 3;
 unsigned char readData[3];

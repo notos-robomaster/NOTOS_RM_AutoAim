@@ -98,8 +98,10 @@ void AngleSolver::solveAngles()
             break;
     }
 
-    GUN_CAM_DISTANCE_X = -125;
-    GUN_CAM_DISTANCE_Y = -50;
+//    GUN_CAM_DISTANCE_X = -125;
+//    GUN_CAM_DISTANCE_Y = -50;
+    GUN_CAM_DISTANCE_X = 0;
+    GUN_CAM_DISTANCE_Y = 0;
     tVec.at<double>(0, 0) -= GUN_CAM_DISTANCE_X;
     tVec.at<double>(1, 0) -= GUN_CAM_DISTANCE_Y;
     double x_pos = tVec.at<double>(0, 0);

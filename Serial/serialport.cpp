@@ -273,10 +273,10 @@ void SerialPort::TransformData_Part(bool part, double Data_1, double Data_2) // 
     int DataDecimal_1 = static_cast<int>(Data_1 * 10) % 10;
     int DataDecimal_2 = static_cast<int>(Data_2 * 10) % 10;
 
-    int autoaim = 0;
+    int autoaim = 1;
     if (Data_1<3 && Data_2<3)
     {
-        autoaim = 1;
+        autoaim = 0;
     }
 
     Tdata[0] = 0x16;

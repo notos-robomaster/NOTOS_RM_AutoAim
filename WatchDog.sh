@@ -5,7 +5,8 @@ cnt=0
 path=/home/oconnor/NOTOS_RM_AutoAim/cmake-build-debug
 name=NOTOS_RM_AutoAim
 cd $path
-make clean && make -j10
+make clean
+make -j10
 chmod +x /dev/ttyUSB0
 
 while [ 1 ]; do
@@ -14,22 +15,20 @@ while [ 1 ]; do
 	echo $thread
 	echo "Thread count: $count"
 	echo "Expection count: $cnt"
-	if [ $count -gt 0 ]; then
-		echo "The $name is still alive!"
-		sleep $sec
-	else	
+	if [ $count -lt 1 ]; then
 		echo "Starting $name..."
 		chmod +x /dev/ttyUSB0
-
 		cd $path
-		./$name &
+		./$name
 		echo "$name has started!"
 		sleep $sec
-
 		cnt=$((cnt + 1))
 		if [ $cnt -gt 19 ]; then
 			reboot
 		fi
-	
+
+	else	
+		echo "The $name is still alive!"
+		sleep $sec
 	fi
 done

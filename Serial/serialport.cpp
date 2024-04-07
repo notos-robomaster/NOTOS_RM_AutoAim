@@ -274,7 +274,7 @@ void SerialPort::TransformData_Part(bool part, double Data_1, double Data_2) // 
     int DataDecimal_2 = static_cast<int>(Data_2 * 10) % 10;
 
     int autoaim = 1;
-    if (Data_1<3 && Data_2<3)
+    if (Data_1 < 3 && Data_2 < 3)
     {
         autoaim = 0;
     }

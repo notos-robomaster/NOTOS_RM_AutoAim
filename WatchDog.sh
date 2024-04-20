@@ -27,7 +27,7 @@ while [ 1 ]; do
 			reboot
 		fi
 
-	else	
+	else
 		echo "The $name is still alive!"
 		sleep $sec
 	fi

@@ -37,6 +37,10 @@ int AngleSolver::setCameraParam(const char *filePath, int camId)    // todo camI
             fsRead["CAMERA_MATRIX_2"] >> camera_matrix;
             fsRead["DISTORTION_COEFF_2"] >> distortion_coeff;
             break;
+        case 3:
+            fsRead["CAMERA_MATRIX_3"] >> camera_matrix;
+            fsRead["DISTORTION_COEFF_3"] >> distortion_coeff;
+            break;
         default:
             cerr << "wrong CamId given!" << endl;
             break;
@@ -104,10 +108,7 @@ void AngleSolver::solveAngles()
     GUN_CAM_DISTANCE_Y = 0;
     tVec.at<double>(0, 0) -= GUN_CAM_DISTANCE_X;
     tVec.at<double>(1, 0) -= GUN_CAM_DISTANCE_Y;
-    double x_pos = tVec.at<double>(0, 0);
-    double y_pos = tVec.at<double>(1, 0);
-    double z_pos = tVec.at<double>(2, 0);
-    distance = sqrt(x_pos * x_pos + y_pos * y_pos + z_pos * z_pos);
+    distance = norm(tVec);
 
     if (distance > 5000)
     {
@@ -124,7 +125,6 @@ void AngleSolver::P4P_solver()
     double x_pos = tVec.at<double>(0, 0);
     double y_pos = tVec.at<double>(1, 0);
     double z_pos = tVec.at<double>(2, 0);
-
     double tan_pitch = y_pos / sqrt(x_pos * x_pos + z_pos * z_pos);
     double tan_yaw = x_pos / z_pos;
     x_pitch = -atan(tan_pitch) * 180 / CV_PI;

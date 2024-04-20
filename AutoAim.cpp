@@ -15,8 +15,8 @@ QApplication a(argc, argv);
 MotionDetect motionDetect;
 #endif // SHOW_PLOT
 
-//Color ENEMYCOLOR = BLUE;
-Color ENEMYCOLOR = RED;
+Color ENEMYCOLOR = BLUE;
+//Color ENEMYCOLOR = RED;
 
 int targetNum = 3;
 unsigned char readData[3];
@@ -33,10 +33,10 @@ void autoaimRun()
 {
     detector.loadSVM("../General/123svm.xml");  // todo SVM update
 
-    angleSolver.setCameraParam("../General/camera_params.xml", 2);
+    angleSolver.setCameraParam("../General/camera_params.xml", 3);
     angleSolver.setArmorSize(SMALL_ARMOR, 135, 125);
     angleSolver.setArmorSize(BIG_ARMOR, 230, 127);
-    angleSolver.setBulletSpeed(70650);
+    angleSolver.setBulletSpeed(274032);
 
     port.initSerialPort();  //串口初始化
 

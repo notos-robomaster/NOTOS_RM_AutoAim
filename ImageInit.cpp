@@ -2,7 +2,11 @@
 #include <opencv2/opencv.hpp>
 #include "Debug.h"
 #include "./General/General.h"
+#include "hikcam/hikcam_control.h"
 
+#ifdef USING_HIKCAM
+HikCam hik;
+#endif // USING_HIKCAM
 #ifdef USING_USB_CAMERA
 cv::VideoCapture capture(0);
 #endif // USING_USB_CAMERA
@@ -23,11 +27,16 @@ void imageInit()
             return;
         }
         MVVideoCapture::Play();
-        MVVideoCapture::SetExposureTime(false, 3000);
+        MVVideoCapture::SetExposureTime(false, 17000);
         MVVideoCapture::SetLargeResolution(false);
         std::cout << "MindVision Finished!" << std::endl;
         std::this_thread::sleep_for(std::chrono::seconds(1));
 #endif // USING_MINDVISION
+#ifdef USING_HIKCAM
+    hik.initialize();
+    hik.printCameraInfo();
+    hik.startGrabbing();
+#endif // USING_HIKCAM
 }
 
 void imageUpdating()
@@ -35,6 +44,9 @@ void imageUpdating()
 #ifdef USING_MINDVISION
     MVVideoCapture::GetFastFrame(src);
 #endif // USING_MINDVISION
+#ifdef USING_HIKCAM
+    hik.getVideo(src);
+#endif // USING_HIKCAM
 #ifdef USING_USB_CAMERA
     capture >> src;
 #endif // USING_USB_CAMERA

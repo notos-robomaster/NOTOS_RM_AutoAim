@@ -15,8 +15,10 @@ find_package(Qt5 COMPONENTS
         PrintSupport
         REQUIRED)
 find_package(Qt5PrintSupport REQUIRED)
-
 include_directories(${OpenCV_INCLUDE_DIRS})
+
+include_directories("hikcam/inc")
+link_directories("hikcam/lib")
 
 add_executable(NOTOS_RM_AutoAim main.cpp
         Armor/findLights.cpp
@@ -35,6 +37,8 @@ add_executable(NOTOS_RM_AutoAim main.cpp
         MindVision/head/CameraApi.h
         MindVision/head/CameraCapture.h
         MindVision/head/CameraStatus.h
+        hikcam/hikcam_control.cpp
+        hikcam/hikcam_control.h
         AngleSolver/AngleSolver.cpp
         AngleSolver/AngleSolver.h
         Serial/serialport.cpp
@@ -50,7 +54,7 @@ add_executable(NOTOS_RM_AutoAim main.cpp
 )
 
 target_link_libraries(NOTOS_RM_AutoAim /home/oconnor/MVSDK/lib/x64/libMVSDK.so)
-target_link_libraries(NOTOS_RM_AutoAim ${OpenCV_LIBRARIES} fmt::fmt pthread)
+target_link_libraries(NOTOS_RM_AutoAim ${OpenCV_LIBRARIES} fmt::fmt pthread MvCameraControl)
 target_link_libraries(NOTOS_RM_AutoAim
         Qt5::Core
         Qt5::Gui

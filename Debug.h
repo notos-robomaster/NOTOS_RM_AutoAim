@@ -15,7 +15,8 @@
 //                          Hardware device options
 // TODO: Make sure define comment state are reasonable
 //- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -//
-#define USING_MINDVISION    // using MindVision
+//#define USING_MINDVISION    // using MindVision
+#define USING_HIKCAM    // using hik camera
 //#define USING_USB_CAMERA    // using usb camera
 //#define VIDEO_PATH "/home/cgnb/TheNewBegging/testArmor.mp4"    // using video
 //===========================================================================//
@@ -43,7 +44,7 @@
 
 //#define SHOW_PREDICT    // show predict info
 
-#define TEXT_FPS    // fps info
+//#define TEXT_FPS    // fps info
 
 //#define SHOW_PLOT // show motion detection in plot
 
@@ -57,5 +58,5 @@
 //- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -//
 //#define WAIT_RECEIVE  // wait serial port to receive data
 //#define KALMAN  // whether to open kalman
-#define REFLECTION_LIGHT    // whether to delete reflection light, only valid for one car
+//#define REFLECTION_LIGHT    // whether to delete reflection light, only valid for one car
 //===========================================================================//

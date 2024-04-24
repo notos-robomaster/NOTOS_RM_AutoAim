@@ -17,7 +17,7 @@ public:
     ~HikCam();
 
     void* handle;
-    unsigned char *pData;
+//    unsigned char *pData{};
     bool initialize();
     bool  getVideo(Mat& frame);
     bool printCameraInfo();
@@ -29,10 +29,10 @@ private:
 
     unsigned int  nPayloadSize;
 
-    MV_CC_PIXEL_CONVERT_PARAM CvtParam;
+//    MV_CC_PIXEL_CONVERT_PARAM CvtParam{};
     MV_CC_DEVICE_INFO_LIST stDeviceList;
     MVCC_FLOATVALUE stFloatVal;
-    MV_FRAME_OUT_INFO_EX stImageInfo;
+//    MV_FRAME_OUT_INFO_EX stImageInfo{};
     MV_FRAME_OUT stOutFrame;
 
     bool  enumCamera();
@@ -47,7 +47,7 @@ private:
     bool  stopGrabbing();
     bool  closeCamera();
     bool  destroyHandle();
-    void  freeMemory() const;
+    void  freeMemory();
     void  setCamera() const ;
 
 };

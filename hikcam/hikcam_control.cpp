@@ -60,7 +60,7 @@ bool HikCam::createHandle() {
         return false;
     }
     return true;
-
+    
 }
 
 bool HikCam::openCamera() {
@@ -81,7 +81,7 @@ bool HikCam::setValue() {
     }
 
     return true;
-
+    
 }
 
 bool HikCam::initImage() {
@@ -103,7 +103,7 @@ bool HikCam::initImage() {
         return false;
     }
     return true;
-
+    
 }
 
 bool HikCam::startGrabbing(){

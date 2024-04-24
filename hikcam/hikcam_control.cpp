@@ -19,7 +19,6 @@ HikCam::~HikCam(){
     stopGrabbing();
     closeCamera();
     destroyHandle();
-    freeMemory();
 
 }
 bool HikCam::initialize() {
@@ -61,7 +60,7 @@ bool HikCam::createHandle() {
         return false;
     }
     return true;
-
+    
 }
 
 bool HikCam::openCamera() {
@@ -82,7 +81,7 @@ bool HikCam::setValue() {
     }
 
     return true;
-
+    
 }
 
 bool HikCam::initImage() {
@@ -104,7 +103,7 @@ bool HikCam::initImage() {
         return false;
     }
     return true;
-
+    
 }
 
 bool HikCam::startGrabbing(){
@@ -149,11 +148,11 @@ bool HikCam::destroyHandle() {
 
 }
 
-void HikCam::freeMemory() const  {
+void HikCam::freeMemory()  {
 
-    if (stOutFrame.pBufAddr)
+    if(nullptr != stOutFrame.pBufAddr)
     {
-        free(stOutFrame.pBufAddr);
+        MV_CC_FreeImageBuffer(handle, &stOutFrame);
     }
 
 
@@ -224,10 +223,7 @@ bool HikCam::getVideo(Mat& frame) {
 
     getOneFrame();
     Bayer8ToBGR(frame);
-    if(nullptr != stOutFrame.pBufAddr)
-    {
-        MV_CC_FreeImageBuffer(handle, &stOutFrame);
-    }
+    freeMemory();
 
     return true;
 }
